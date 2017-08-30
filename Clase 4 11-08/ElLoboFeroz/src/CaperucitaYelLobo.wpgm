@@ -1,0 +1,21 @@
+import lobo.*
+import chanchito.*
+import caperucitaRoja.*
+import abuelita.*
+
+program caperucitaYelLobo {
+
+	console.println('Lobo Corre')
+	loboSolitario.loboCorre(caperucitaRoja)
+	console.println('¿Caperucita donde va?')
+	loboSolitario.loboPregunta()
+	loboSolitario.loboCome(chanchito)
+	loboSolitario.loboCorre(abuelita)
+	loboSolitario.loboCome(abuelita)
+	caperucitaRoja.caperucitaMolesta()
+	console.println('¿Lobo esta gordo?')
+	console.println(loboSolitario.loboGordo())
+	console.println('¿Lobo esta saludable?')
+	console.println(loboSolitario.loboSaludable())
+
+}

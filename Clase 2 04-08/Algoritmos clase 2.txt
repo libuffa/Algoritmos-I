@@ -1,0 +1,13 @@
+/*******************************/
+/	Algoritmos I 04/08			/
+/*******************************/
+
+/*Programación por objetos*/
+---------------------------
+
+	¿Al objeto que podes pedirle? --> metodo --> objeto.pedidoAlObjeto(parametro){ (..contenido..) }
+	El objeto sabe cosas --> Variable
+	Se puede pasar en una variable un objeto --> var variable; .. return variable.metodo();
+	Identificar cada objeto, que hace cada uno y como se relacionan entre si --> es como armar un guion para una peliculas
+	Errores frecuentes --> hacer pedidos al objeto que no sabe que decirte
+	

@@ -1,0 +1,19 @@
+import camiseta1.*
+import camiseta2.*
+import sacachispas.*
+import sanMiguel.*
+
+program test01 {
+	console.println('Resistencia camiseta 1: ')
+	console.println(camiseta1.getResistencia())
+	console.println('Resistencia camiseta 2: ')
+	console.println(camiseta2.getResistencia())
+	console.println('Sacachispas acepta camiseta 1? ')
+	console.println(sacachispas.isSatisfecho(camiseta1))
+	console.println('Sacachispas acepta camiseta 2? ')
+	console.println(sacachispas.isSatisfecho(camiseta2))
+	console.println('San Miguel acepta camiseta 1? ')
+	console.println(sanMiguel.isSatisfecho(camiseta1))
+	console.println('San Miguel acepta camiseta 2? ')
+	console.println(sanMiguel.isSatisfecho(camiseta2))
+}

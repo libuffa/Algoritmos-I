@@ -1,0 +1,5 @@
+/--------------------/
+*Algoritmos I clase 3*
+/--------------------/
+
+	Objetos --> puede ser cualquier cosa que responda a un modelo

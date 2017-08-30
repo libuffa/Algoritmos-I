@@ -1,0 +1,6 @@
+/***********************/
+|	Algoritmos I 22/08	|
+/***********************/
+
+	Los metodos con retorno no llevan parametro
+	Clase	-->	Prototipo de objeto	-->	misma estructura

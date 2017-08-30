@@ -1,0 +1,24 @@
+import lobo.*
+import chanchito.*
+
+program losTresChanchitos {
+
+	loboSolitario.loboCorre(casaDePaja)
+	console.println('El lobo sopla primero la casa de paja')
+	loboSolitario.loboSopla(casaDePaja)
+	loboSolitario.loboCorre(casaDeMadera)
+	console.println('El lobo sopla despues la casa de madera')
+	loboSolitario.loboSopla(casaDeMadera)
+	loboSolitario.loboCorre(casaDeLadrillo)
+	console.println('El lobo sopla por ultimo la casa de ladrillos')
+	loboSolitario.loboSopla(casaDeLadrillo)
+	console.println('El lobo se come los tres chanchitos')
+	loboSolitario.loboCome(chanchito)
+	loboSolitario.loboCome(chanchito)
+	loboSolitario.loboCome(chanchito)
+	console.println('¿Lobo esta gordo?')
+	console.println(loboSolitario.loboGordo())
+	console.println('¿Lobo esta saludable?')
+	console.println(loboSolitario.loboSaludable())
+
+}

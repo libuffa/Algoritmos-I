@@ -1,0 +1,15 @@
+/*******************************/
+|	Algoritmos I clase 9 29/08	|
+/*******************************/
+
+	method lookup	-->	donde esta implementado el metodo para ese mensaje
+					-->	envias un mensaje al objeto y el method lookup busca el metodo en la clase
+	Cada objeto tiene sus valores propios	-->	si se modifica el estado se modifica solo en el objeto
+	comportamiento	-->	lo define la clase
+	estado	-->	lo inicializa la clase pero es propio de objeto
+	Sistema versionado	-->	vamos a usar Git y Github
+						--> vamos a usar git commit para repo local
+						-->	vamos a usar git push para repo remoto Github
+						-->	vamos a usar git pull para traer lo de Github
+						-->	vamos a usar git add para agregarlo al index
+						-->	git commit XXXX -m "algun mensaje"

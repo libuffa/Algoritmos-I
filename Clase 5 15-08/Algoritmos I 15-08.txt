@@ -1,0 +1,10 @@
+/*******************************/
+|	Algoritmos I clase 5 15/08	|
+/*******************************/
+
+	Polimorfismo 	--> debo tratar a dos o mas objetos mediante mensajes sino es una comunicacion normal
+	Si un objeto es de retorno no podemos cambiar el estado bajo ningun concepto, es decir, no podemos provocar efecto de lado.
+	Cohesion	-->	el grado de similitud que tienen los elementos de un objeto	
+				-->	Mantener cohesion alta
+				-->	Mientras mas cohesivo mas posible de reutilizar
+	Refactorizar	--> Cambiar el diseño sin cambiar lo que hace

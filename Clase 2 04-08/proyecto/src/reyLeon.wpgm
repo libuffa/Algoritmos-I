@@ -1,0 +1,12 @@
+import Rey.*
+
+program reyLeon {
+
+	console.println('Hola Simba')
+	console.println(simba.estasContento())
+	simba.amigate(timon)
+	console.println(simba.estasContento())
+	//timon.reducir()
+	nala.cambiarAnimo(feliz)
+	console.println(nala.velocidad())
+}
