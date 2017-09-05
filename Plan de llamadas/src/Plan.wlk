@@ -1,17 +1,22 @@
+import Llamada.*
 
 class Plan {
 
 	var costoServicio
+	var llamadaLocal = new Llamada(5, 1)
+	var llamadaInt = new Llamada(9, 3)
 	
 	//Plan Full
 	constructor (pcostoServicio){
 		costoServicio  = pcostoServicio
 	}
+	
+	method llamarPorCargo(llamar, minuto){
+		costoServicio = costoServicio * llamar.realizarLlamada(minuto)
+	}
 	/*La principal tarea es llevar el control de la recaudación de la empresa a los distintos 
 	 * clientes de acuerdo al plan que tiene cada uno. 
-	 * 
-Los clientes con plan full no tienen límite de consumos. Pagan un precio fijo por mes sin 
-* importar las llamadas y mensajes realizados. Actualmente este servicio tiene un valor de $200.
+
 * 
 El plan básico no tiene ningún costo si no se utiliza el servicio. Paga por cada comunicación 
 * que realiza, de acuerdo a la tabla de precios vigente. siempre puede hacer llamadas. A fin de 

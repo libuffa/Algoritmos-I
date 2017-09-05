@@ -8,5 +8,9 @@ class Llamada {
 		costoFijo = pcostoFijo
 		costoPorMinuto = pcostoPorMinuto
 	}
+	
+	method realizarLlamada(minuto){
+		return costoFijo + (costoPorMinuto * minuto)
+	}
 
 }
