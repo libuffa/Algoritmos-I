@@ -1,21 +1,24 @@
 import Llamada.*
+import Pais.*
 
 class Plan {
+	var costoMensual
+	var local = new Llamada(5, 1)
+	var int = new Llamada(new Pais(9), 3)
 
-	var costoServicio
-	var llamadaLocal = new Llamada(5, 1)
-	var llamadaInt = new Llamada(9, 3)
-	
-	//Plan Full
-	constructor (pcostoServicio){
-		costoServicio  = pcostoServicio
+	constructor(pcostoServicio) {
+		costoMensual = pcostoServicio
 	}
-	
-	method llamarPorCargo(llamar, minuto){
-		costoServicio = costoServicio * llamar.realizarLlamada(minuto)
+
+	method llamarPorCargo(tipoLlamada,minuto) {
+		costoMensual = costoMensual + tipoLlamada.realizarLlamada(minuto)//no me deja referenciar los objetos local e int
 	}
-	/*La principal tarea es llevar el control de la recaudación de la empresa a los distintos 
-	 * clientes de acuerdo al plan que tiene cada uno. 
+
+	method costoServicio() {
+		return costoMensual
+	}
+/*La principal tarea es llevar el control de la recaudación de la empresa a los distintos 
+ * clientes de acuerdo al plan que tiene cada uno. 
 
 * 
 El plan básico no tiene ningún costo si no se utiliza el servicio. Paga por cada comunicación 
@@ -44,5 +47,4 @@ Se pide:
 - Obtener el importe recaudado por la compañía telefonica
 - Hacer que un cliente pague de acuerdo a su plan
 	 */
-
 }
