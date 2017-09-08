@@ -1,13 +1,8 @@
 
 class Pais {
-
 	var recargo
-	
-	constructor (precargo){
+
+	constructor(precargo) {
 		recargo = precargo
-	}
-	
-	method recargo(){
-		return recargo
 	}
 }

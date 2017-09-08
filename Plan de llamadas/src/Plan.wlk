@@ -5,45 +5,50 @@ class Plan {
 	var costoMensual = 0
 	var limiteLlamadas = 0
 	var cantLlamadas = 0
-	
+
 	constructor(pcostoMensual) {
 		costoMensual = pcostoMensual
 	}
-	
-	constructor(pcostoMensual,plimiteLlamadas) {
-		costoMensual = pcostoMensual
+
+	constructor(pcostoMensual, plimiteLlamadas) {
+		costoMensual = pcostoMensual 
 		limiteLlamadas = plimiteLlamadas
 	}
 
-	method llamarPorAbono(destino,minuto) {
-		if(self.cobrarLlamada())
+	method llamarPorAbono(destino, minuto) {
+		if (self.cobrarLlamada()) 
 			costoMensual = costoMensual + destino.realizarLlamada(minuto)
 	}
-	
-	method llamarPorTarjeta(destino,minuto){
-		if(self.puedoLlamar(destino,minuto))
+
+	method llamarPorTarjeta(destino, minuto) {
+		if (self.puedoLlamar(destino, minuto)) 
 			costoMensual = costoMensual - destino.realizarLlamada(minuto)
 	}
-	
-	method sumarLlamada(){
-		cantLlamadas =+1
+
+	method sumarLlamada() {
+		cantLlamadas = + 1
 	}
-	
-	method cobrarLlamada(){
+
+	method cobrarLlamada() {
 		return limiteLlamadas > cantLlamadas
 	}
-	
-	method probarLlamada(destino,minuto){
+
+	method probarLlamada(destino, minuto) {
 		return costoMensual - destino.realizarLlamada(minuto)
 	}
-	
-	method puedoLlamar(destino,minuto){
-		return self.probarLlamada(destino,minuto) > 0
+
+	method puedoLlamar(destino, minuto) {
+		return self.probarLlamada(destino, minuto) > 0
+	}
+
+	method cargarTarjeta(monto) {
+		costoMensual = costoMensual + monto
 	}
 
 	method costoServicio() {
 		return costoMensual
 	}
+}
 /*La principal tarea es llevar el control de la recaudación de la empresa a los distintos 
  * clientes de acuerdo al plan que tiene cada uno. 
  
@@ -69,4 +74,3 @@ Se pide:
 - Obtener el importe recaudado por la compañía telefonica
 - Hacer que un cliente pague de acuerdo a su plan
 	 */
-}
