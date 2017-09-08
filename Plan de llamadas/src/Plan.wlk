@@ -2,16 +2,43 @@ import Llamada.*
 import Pais.*
 
 class Plan {
-	var costoMensual
-	var local = new Llamada(5, 1)
-	var int = new Llamada(new Pais(9), 3)
-
-	constructor(pcostoServicio) {
-		costoMensual = pcostoServicio
+	var costoMensual = 0
+	var limiteLlamadas = 0
+	var cantLlamadas = 0
+	
+	constructor(pcostoMensual) {
+		costoMensual = pcostoMensual
+	}
+	
+	constructor(pcostoMensual,plimiteLlamadas) {
+		costoMensual = pcostoMensual
+		limiteLlamadas = plimiteLlamadas
 	}
 
-	method llamarPorCargo(tipoLlamada,minuto) {
-		costoMensual = costoMensual + tipoLlamada.realizarLlamada(minuto)//no me deja referenciar los objetos local e int
+	method llamarPorAbono(destino,minuto) {
+		if(self.cobrarLlamada())
+			costoMensual = costoMensual + destino.realizarLlamada(minuto)
+	}
+	
+	method llamarPorTarjeta(destino,minuto){
+		if(self.puedoLlamar(destino,minuto))
+			costoMensual = costoMensual - destino.realizarLlamada(minuto)
+	}
+	
+	method sumarLlamada(){
+		cantLlamadas =+1
+	}
+	
+	method cobrarLlamada(){
+		return limiteLlamadas > cantLlamadas
+	}
+	
+	method probarLlamada(destino,minuto){
+		return costoMensual - destino.realizarLlamada(minuto)
+	}
+	
+	method puedoLlamar(destino,minuto){
+		return self.probarLlamada(destino,minuto) > 0
 	}
 
 	method costoServicio() {
@@ -19,12 +46,7 @@ class Plan {
 	}
 /*La principal tarea es llevar el control de la recaudación de la empresa a los distintos 
  * clientes de acuerdo al plan que tiene cada uno. 
-
-* 
-El plan básico no tiene ningún costo si no se utiliza el servicio. Paga por cada comunicación 
-* que realiza, de acuerdo a la tabla de precios vigente. siempre puede hacer llamadas. A fin de 
-* mes paga lo que corresponda.
-* 
+ 
 También está el llamado plan control, en el cual el cliente paga una tarifa mensual que cubre 
 * las 100 primeras comunicaciones, y se cobra el excedente según los precios vigentes. 
 * 
