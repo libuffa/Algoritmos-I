@@ -3,7 +3,7 @@ import Pais.*
 
 class Plan {
 	var costoMensual = 0
-	var limiteLlamadas = 0
+	var limiteLlamadas = -1
 	var cantLlamadas = 0
 
 	constructor(pcostoMensual) {
@@ -18,6 +18,7 @@ class Plan {
 	method llamarPorAbono(destino, minuto) {
 		if (self.cobrarLlamada()) 
 			costoMensual = costoMensual + destino.realizarLlamada(minuto)
+		self.sumarLlamada()
 	}
 
 	method llamarPorTarjeta(destino, minuto) {
@@ -30,7 +31,7 @@ class Plan {
 	}
 
 	method cobrarLlamada() {
-		return limiteLlamadas > cantLlamadas
+		return cantLlamadas > limiteLlamadas
 	}
 
 	method probarLlamada(destino, minuto) {
@@ -47,6 +48,10 @@ class Plan {
 
 	method costoServicio() {
 		return costoMensual
+	}
+	
+	method cantidadLlamadas(){
+		return cantLlamadas
 	}
 }
 /*La principal tarea es llevar el control de la recaudación de la empresa a los distintos 
