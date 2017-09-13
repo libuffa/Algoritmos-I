@@ -16,10 +16,10 @@ class Cliente{
 	
 	/*	Metodos de Retorno	 */
 	method obtenerAceptacionPorResistencia(camiseta) {
-		return camiseta.miResistencia() > resistenciaMinima
+		return camiseta.obtenerResistencia() > resistenciaMinima
 	}
 	
 	method obtenerAceptacionPorColor(camiseta) {
-		return camiseta.color() == colorAceptado
+		return camiseta.obtenerColor() == colorAceptado
 	}
 }

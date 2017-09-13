@@ -29,7 +29,7 @@ class Prenda {
 
 	/*	Metodos de Retorno	 */
 	method obtenerResistencia() {
-		return ( self.obtenerResistenciaMaterial() + self.obtenerResistenciaRefuerzos() ) *
+		return ( material.obtenerResistencia() + self.obtenerResistenciaRefuerzos() ) *
 		self.obtenerResistenciaCostura()
 	}
 
@@ -46,10 +46,6 @@ class Prenda {
 	method obtenerPrecioPorResistencia() {
 		return 50 * self.obtenerResistencia()
 	}
-	method obtenerResistenciaMaterial() {
-		return material.resistencia()
-	}
-
 	method obtenerCantRefuerzos() {
 		return cantRefuerzos
 	}
