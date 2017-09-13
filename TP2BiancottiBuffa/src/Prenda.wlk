@@ -1,4 +1,5 @@
 import Cliente.*
+import Material.*
 
 class Prenda {
 	/*	Atributos	 */
@@ -9,22 +10,23 @@ class Prenda {
 	var costuraExtra
 	var color
 	var costo
-
+	var polyester = new Material("Polyester", 4, 300)
+	
 	/*	Constructores	 */
 	constructor(pduenio, pcolor, pmaterial) {
 		duenio = pduenio
 		color = pcolor
-		material = pmaterial
-		costo = self.obtenerCostoCamiseta()
+		material = new Material(pmaterial.obtenerNombreMaterial(), pmaterial.obtenerResistencia(), pmaterial.obtenerCostoBase())
+		costo = self.calcularCostoCamiseta()
 	}
 	
 	constructor(pduenio, pmaterial, pcantRefuerzos, pcosturaExtra, pcolor) {
 		duenio = pduenio
-		material = pmaterial 
+		material = new Material(pmaterial.obtenerNombreMaterial(), pmaterial.obtenerResistencia(), pmaterial.obtenerCostoBase()) 
 		cantRefuerzos = pcantRefuerzos 
 		costuraExtra = pcosturaExtra 
 		color = pcolor
-		costo = self.obtenerCostoCamiseta()
+		costo = self.calcularCostoCamiseta()
 	}
 
 	/*	Metodos de Retorno	 */
@@ -39,8 +41,8 @@ class Prenda {
 	method obtenerResistenciaCostura() {
 		return ( 0.2 * self.obtenerCosturaExtra() ) + 1
 	}
-	method obtenerCostoCamiseta() {
-		self.cambiarCostoBase(material)
+	method calcularCostoCamiseta() {
+		self.cambiarCostoBase()
 		return material.obtenerCostoBase() + self.obtenerPrecioPorResistencia()
 	}
 	method obtenerPrecioPorResistencia() {
@@ -52,10 +54,9 @@ class Prenda {
 	method obtenerCosturaExtra() {
 		return costuraExtra
 	}
-	//Ver como usar este metodo
-	method cambiarCostoBase(tipoMaterial){
-		if(tipoMaterial.obtenerNombreMaterial() == "Polyester" && self.obtenerColor() == "negra")
-			 tipoMaterial.cambiarCostobase(500)
+	method cambiarCostoBase(){
+		if(material.obtenerNombreMaterial() == "Polyester" && self.obtenerColor() == "negra")
+			 material.cambiarCostobase(500)
 	}
 	method obtenerColor() {
 		return color

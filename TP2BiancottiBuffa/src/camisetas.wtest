@@ -1,6 +1,7 @@
 import Cliente.*
 import Prenda.*
 import Material.*
+import Proveedor.*
 
 describe "Testeo de camisetas de futbol" {
 	
@@ -12,8 +13,8 @@ describe "Testeo de camisetas de futbol" {
 	var sanMiguel
 	 
 	fixture{
-		polyester = new Material("Polyester", 4, 550)
-		dryfit = new Material("Dryfit", 9, 400)
+		polyester = new Material("Polyester", 4, 300)
+		dryfit = new Material("Dryfit", 9, 550)
 		camiseta1 = new Prenda(sacachispas, polyester, 2, 3, "verde") 
 		camiseta2 = new Prenda(sanMiguel, dryfit, 5, 0, "rojo")
 		sacachispas = new Cliente("Sacachispas", 8, "")
@@ -54,5 +55,10 @@ describe "Testeo de camisetas de futbol" {
 
 		assert.notThat(sanMiguel.obtenerAceptacionPorColor(camiseta2))
 
+	}
+	
+	test "Pedir al estampador que agregue una nueva leyenda"{
+		estampador.agregarLeyenda(camiseta1, sacachispas.obtenerLeyenda())
+		assert.equals(800, camiseta1.obtenerCosto())
 	}
 }

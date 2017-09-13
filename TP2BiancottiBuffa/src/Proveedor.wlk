@@ -12,7 +12,7 @@ object estampador {
 	}
 	
 	method agregarPrecioAdicional(camiseta, adicional){
-		var nuevoCosto = camiseta.costoCamiseta() + adicional
+		var nuevoCosto = camiseta.obtenerCosto() + adicional
 		camiseta.cambiarCosto(nuevoCosto)
 	}
 

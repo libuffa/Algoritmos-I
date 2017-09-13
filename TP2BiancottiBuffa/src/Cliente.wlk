@@ -22,4 +22,16 @@ class Cliente{
 	method obtenerAceptacionPorColor(camiseta) {
 		return camiseta.obtenerColor() == colorAceptado
 	}
+	
+	method obtenerLeyenda(){
+		return leyenda
+	}
+	
+	method obtenerResistenciaMinima(){
+		return resistenciaMinima
+	}
+	
+	method obtenerColorAceptado(){
+		return colorAceptado
+	}
 }
