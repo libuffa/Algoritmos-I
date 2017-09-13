@@ -1,0 +1,58 @@
+import Cliente.*
+import Prenda.*
+import Material.*
+
+describe "Testeo de camisetas de futbol" {
+	
+	var camiseta1
+	var camiseta2
+	var polyester
+	var dryfit
+	var sacachispas
+	var sanMiguel
+	 
+	fixture{
+		polyester = new Material("Polyester", 4, 550)
+		dryfit = new Material("Dryfit", 9, 400)
+		camiseta1 = new Prenda(sacachispas, polyester, 2, 3, "verde") 
+		camiseta2 = new Prenda(sanMiguel, dryfit, 5, 0, "rojo")
+		sacachispas = new Cliente("Sacachispas", 8, "")
+		sanMiguel = new Cliente("San Miguel", 0, "verde")
+	}
+
+	test "Medir la resistencia de la camiseta 1 que sea igual a 8" {
+
+		assert.equals(8, camiseta1.obtenerResistencia())
+
+	}
+
+	test "Medir la resistencia de la camiseta 2 que sea igual a 11.5" {
+
+		assert.equals(11.5, camiseta2.obtenerResistencia())
+
+	}
+
+	test "Preguntar si Sacachispas acepta la camiseta 1" {
+
+		assert.notThat(sacachispas.obtenerAceptacionPorResistencia(camiseta1))
+
+	}
+
+	test "Preguntar si Sacachispas acepta la camiseta 2" {
+
+		assert.that(sacachispas.obtenerAceptacionPorResistencia(camiseta2))
+
+	}
+
+	test "Preguntar si San Miguel acepta la camiseta 1" {
+
+		assert.that(sanMiguel.obtenerAceptacionPorColor(camiseta1))
+
+	}
+
+	test "Preguntar si San Miguel acepta la camiseta 2" {
+
+		assert.notThat(sanMiguel.obtenerAceptacionPorColor(camiseta2))
+
+	}
+}
