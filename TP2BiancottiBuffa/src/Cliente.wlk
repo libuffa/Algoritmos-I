@@ -1,6 +1,8 @@
 import Prenda.*
 import Material.*
 
+/*comentario de emi para probar */
+
 class Cliente{
 	/*	Atributos	 */
 	var leyenda
