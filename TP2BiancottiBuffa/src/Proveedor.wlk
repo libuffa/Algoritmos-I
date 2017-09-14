@@ -17,3 +17,17 @@ object estampador {
 	}
 
 }
+
+object tintoreria	{
+	
+	method cambiarColor(camiseta, nuevoColor){
+		var adicional = 75
+		if(camiseta.obtenerNombreMaterial() == "Dryfit") adicional =+ 100
+		camiseta.cambiarColor(nuevoColor)
+		self.agregarPrecioAdicional(camiseta, adicional)
+	}
+	method agregarPrecioAdicional(camiseta, adicional){
+		var nuevoCosto = camiseta.obtenerCosto() + adicional
+		camiseta.cambiarCosto(nuevoCosto)
+	}
+}

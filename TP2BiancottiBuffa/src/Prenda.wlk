@@ -67,6 +67,9 @@ class Prenda {
 	method obtenerLeyenda(){
 		return leyenda
 	}
+	method obtenerNombreMaterial(){
+		return material.obtenerNombreMaterial()
+	}
 	/*	Metodos de efecto de lado	 */
 	method cambiarCosto(nuevoCosto){
 		costo = nuevoCosto
@@ -79,6 +82,9 @@ class Prenda {
 	}
 	method cambiarCosturaExtra(nuevaCosturaExtra){
 		costuraExtra = nuevaCosturaExtra
+	}
+	method cambiarColor(nuevoColor){
+		color = nuevoColor
 	}
 }
 

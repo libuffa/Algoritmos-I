@@ -61,4 +61,9 @@ describe "Testeo de camisetas de futbol" {
 		estampador.agregarLeyenda(camiseta1, sacachispas.obtenerLeyenda())
 		assert.equals(800, camiseta1.obtenerCosto())
 	}
+	
+	test "Pedir a la tintoreria cambiar de color"{
+		tintoreria.cambiarColor(camiseta1, camiseta1.obtenerColor())
+		assert.equals(775, camiseta1.obtenerCosto())
+	}
 }
