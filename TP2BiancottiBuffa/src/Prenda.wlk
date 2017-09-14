@@ -78,10 +78,10 @@ class Prenda {
 		leyenda = nuevaLeyenda
 	}
 	method cambiarCantRefuerzo(nuevaCantRefuerzo){
-		cantRefuerzos = nuevaCantRefuerzo
+		cantRefuerzos =+ nuevaCantRefuerzo
 	}
 	method cambiarCosturaExtra(nuevaCosturaExtra){
-		costuraExtra = nuevaCosturaExtra
+		costuraExtra =+ nuevaCosturaExtra
 	}
 	method cambiarColor(nuevoColor){
 		color = nuevoColor
