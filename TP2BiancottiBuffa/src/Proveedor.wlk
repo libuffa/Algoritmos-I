@@ -1,28 +1,5 @@
 import Prenda.*
-/*/
-class Proveedor	{
-	var adicional
-	var servicioProvisto
-	
-	constructor(padicional, pservicioProvisto){
-		adicional = padicional
-		servicioProvisto = pservicioProvisto
-	}
-	
-	method obtenerServicioProvisto(){
-		return servicioProvisto
-	}
-	
-	method obtenerAdicional(){
-		return adicional
-	}
-	
-	method proveerServicio(camiseta){
-		var sp = self.servicioProvisto()
-		self.sp(camiseta)
-	}
-}
-*/
+
 object estampador {
 	
 	/*	Metodos de efecto de lado	 */
@@ -54,24 +31,38 @@ object tintoreria	{
 	}
 }
 
-object costurero	{
+class Costurero	{
 	
+	/*	Atributos	 */
+	var valorRefuerzo
+	var valorCostura
+	
+	/*	Constructores	 */
+	constructor(pvalorRefuerzo, pvalorCostura){
+		valorRefuerzo = pvalorRefuerzo
+		valorCostura = pvalorCostura
+	}
+	
+	/*	Metodos de retorno	 */
+	method calcularUnidadPorPrecio(cantidad, costoUnitario){
+		return cantidad * costoUnitario
+	}
+	
+	/*	Metodos de efecto de lado	 */
 	method agregarRefuerzos(camiseta, nuevoRefuerzo){
-		var adicional = 45
-		//if(camiseta.obtenerNombreMaterial() == "Dryfit") adicional =+ 100
-		camiseta.cambiarRefuerzos(nuevoRefuerzo)
-		self.agregarPrecioAdicional(camiseta, adicional)
+		var costoUnitario = self.calcularUnidadPorPrecio(nuevoRefuerzo, valorRefuerzo)
+		camiseta.cambiarCantRefuerzo(nuevoRefuerzo)
+		self.agregarPrecioAdicional(camiseta,costoUnitario)
 	}
 	
 	method agregarCosturaExtra(camiseta, nuevoCosturaExtra){
-		var adicional = 60
-		//if(camiseta.obtenerNombreMaterial() == "Dryfit") adicional =+ 100
+		var costoUnitario = self.calcularUnidadPorPrecio(nuevoCosturaExtra, valorCostura)
 		camiseta.cambiarCosturaExtra(nuevoCosturaExtra)
-		self.agregarPrecioAdicional(camiseta, adicional)
+		self.agregarPrecioAdicional(camiseta, costoUnitario)
 	}
 	
-	method agregarPrecioAdicional(camiseta, adicional){
-		var nuevoCosto = camiseta.obtenerCosto() + adicional
+	method agregarPrecioAdicional(camiseta, precioAdicional){
+		var nuevoCosto = camiseta.obtenerCosto() + precioAdicional
 		camiseta.cambiarCosto(nuevoCosto)
 	}
 }
