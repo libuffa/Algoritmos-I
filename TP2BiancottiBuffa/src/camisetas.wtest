@@ -57,13 +57,28 @@ describe "Testeo de camisetas de futbol" {
 
 	}
 	
-	test "Pedir al estampador que agregue una nueva leyenda"{
+	test "Calcular que el costo de camiseta1 sea 700"{
+		
+		assert.equals(700, camiseta1.obtenerCosto())
+	}
+	
+	test "Calcular que el costo de camiseta2 sea 1125"{
+		
+		assert.equals(1125, camiseta2.obtenerCosto())
+	}
+	
+	test "Pedir al estampador que agregue una nueva leyenda y el costo de camiseta1 aumente a 800"{
 		estampador.agregarLeyenda(camiseta1, sacachispas.obtenerLeyenda())
 		assert.equals(800, camiseta1.obtenerCosto())
 	}
 	
-	test "Pedir a la tintoreria cambiar de color"{
+	test "Pedir a la tintoreria cambiar de color y el costo de camiseta1 aumente a 775"{
 		tintoreria.cambiarColor(camiseta1, camiseta1.obtenerColor())
 		assert.equals(775, camiseta1.obtenerCosto())
+	}
+	
+	test "Pedir a la tintoreria cambiar de color y el costo de camiseta2 aumente a 1225"{
+		tintoreria.cambiarColor(camiseta2, camiseta2.obtenerColor())
+		assert.equals(1225, camiseta2.obtenerCosto())
 	}
 }
