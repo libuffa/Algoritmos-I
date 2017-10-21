@@ -12,12 +12,12 @@ class Sufragio {
 	method obtenerListas() = listas
 	
 	method realizarDhont(){
-		listas.all({lista => lista.dividirVotos(lista, contadorDhont)})
-		self.restarContadorDhont(contadorDhont)
-		if(contadorDhont > 0) self.realizarDhont()
+		contadorDhont.times({contador =>{ listas.all( {lista => lista.dividirVotos(lista, contadorDhont) } ) } } )
 	}
 	
-	method contarListas() = listas.count()
+	method contarListas() = listas.size()
+	
+	method obtenerContadorDhont() = contadorDhont
 	
 	method dividirVotos(_lista, _contador){
 		_lista.modificarCoeficienteDeVotos(self.calculoDeVotos(_lista, _contador))
@@ -25,8 +25,5 @@ class Sufragio {
 	
 	method calculoDeVotos(_lista, _contador) = _listas.obtenerCoeficienteDeVotos() / _contador
 	
-	method restarContadorDhont(_contador){
-		contadorDhont = contadorDhont - 1
-	}
 
 }

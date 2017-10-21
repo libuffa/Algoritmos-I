@@ -2,11 +2,11 @@
 class Lista {
 
 	var votos
-	var coeficienteDeVotos
+	var coeficienteDeVotos = #{}
 	
 	constructor(_votos){
 		votos = _votos
-		coeficienteDeVotos = self.obtenerVotos()
+		coeficienteDeVotos = self.modificarCoeficienteDeVotos(_votos)
 	}
 	
 	method obtenerVotos() = votos
@@ -14,7 +14,7 @@ class Lista {
 	method obtenerCoeficienteDeVotos() = coeficienteDeVotos
 	
 	method modificarCoeficienteDeVotos(nuevoCoeficiente){
-		coeficienteDeVotos = nuevoCoeficiente
+		coeficienteDeVotos.add(nuevoCoeficiente)
 	}
 
 }

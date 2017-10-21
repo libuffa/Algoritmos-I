@@ -16,7 +16,8 @@ describe "Elecciones 2017" {
 	}
 	
 	test "Se realizan las selecciones y se determina un ganador"{
-		assert.equals()
+		legislativas.realizarDhont()
+		assert.equals(0,legislativas.obtenerContadorDhont())
 	}
 	
 }
