@@ -9,15 +9,15 @@ describe "Elecciones 2017" {
 	var legislativas
 	 
 	fixture{
-		cambiemos = new Lista(15000)
-		fpv = new Lista(10000)
-		izquierda = new Lista(200)
-		legislativas = new Sufragio(#{cambiemos, fpv, izquierda})
+		cambiemos = new Lista("cambiemos", 15000)
+		fpv = new Lista("fpv", 10000)
+		izquierda = new Lista("izquierda", 200)
+		legislativas = new Sufragio(#{cambiemos, fpv, izquierda}, 3)
 	}
 	
 	test "Se realizan las selecciones y se determina un ganador"{
 		legislativas.realizarDhont()
-		assert.equals(0,legislativas.obtenerContadorDhont())
+		assert.equals(#{10000, 5000, 3333.33333},fpv.obtenerCoeficienteDeVotos())
 	}
 	
 }

@@ -1,20 +1,24 @@
+import Coeficiente.*
 
 class Lista {
 
+	var nombreLista
 	var votos
 	var coeficienteDeVotos = #{}
 	
-	constructor(_votos){
+	constructor(_nombreLista, _votos){
+		nombreLista = _nombreLista
 		votos = _votos
-		coeficienteDeVotos = self.modificarCoeficienteDeVotos(_votos)
 	}
+	
+	method obtenerNombreLista() = nombreLista
 	
 	method obtenerVotos() = votos
 	
 	method obtenerCoeficienteDeVotos() = coeficienteDeVotos
 	
-	method modificarCoeficienteDeVotos(nuevoCoeficiente){
-		coeficienteDeVotos.add(nuevoCoeficiente)
+	method agregarCoeficienteDeVotos(nuevoCoeficiente){
+		coeficienteDeVotos.add(new Coeficiente(nuevoCoeficiente, self.obtenerNombreLista()))
 	}
 
 }

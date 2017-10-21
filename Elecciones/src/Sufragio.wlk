@@ -3,27 +3,32 @@ class Sufragio {
 
 	var listas = #{}
 	var contadorDhont
+	var coeficientes = []
 	
-	constructor (_listas){
+	constructor (_listas, _cantidadDeBancas){
 		listas = _listas
-		contadorDhont = self.contarListas()
+		contadorDhont = _cantidadDeBancas
 	}
 	
 	method obtenerListas() = listas
-	
-	method realizarDhont(){
-		contadorDhont.times({contador =>{ listas.all( {lista => lista.dividirVotos(lista, contadorDhont) } ) } } )
-	}
 	
 	method contarListas() = listas.size()
 	
 	method obtenerContadorDhont() = contadorDhont
 	
-	method dividirVotos(_lista, _contador){
-		_lista.modificarCoeficienteDeVotos(self.calculoDeVotos(_lista, _contador))
+	method calculoDeVotos(_lista, _contador) = _lista.obtenerVotos() / _contador
+	
+	method realizarDhont(){
+		contadorDhont.times({contador =>  listas.forEach({ lista => self.dividirVotos(lista, contador)}) })
+		//coeficientes.all({ listas.forEach({  }) })
 	}
 	
-	method calculoDeVotos(_lista, _contador) = _listas.obtenerCoeficienteDeVotos() / _contador
+	method dividirVotos(_lista, _contador){
+		_lista.agregarCoeficienteDeVotos(self.calculoDeVotos(_lista, _contador))
+	}
 	
+	method agregarCoeficientes(_coeficiente){
+		coeficientes.add(_coeficiente)
+	}
 
 }
