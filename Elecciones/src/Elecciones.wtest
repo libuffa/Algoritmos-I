@@ -20,4 +20,12 @@ describe "Elecciones 2017" {
 		assert.equals(#{10000, 5000, 3333.33333},fpv.obtenerCoeficienteDeVotos())
 	}
 	
+	test "Se agregan todos los coeficientes a una sola lista"{
+		
+		legislativas.realizarDhont()
+		legislativas.agregarCoeficientes()
+		assert.equals(0, legislativas.ordenarCoeficientes())
+		
+	}
+	
 }

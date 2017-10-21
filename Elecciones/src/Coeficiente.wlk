@@ -1,12 +1,14 @@
 
 class Coeficiente {
 
-	var coeficiente
+	var valorCoeficiente
 	var nombreLista
 	
 	constructor(_coeficiente, _nombreLista){
-		coeficiente = _coeficiente
+		valorCoeficiente = _coeficiente
 		nombreLista = _nombreLista
 	}
+	
+	method obtenerValorCoeficiente() = valorCoeficiente
 
 }
