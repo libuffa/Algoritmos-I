@@ -1,0 +1,22 @@
+import Lista.*
+import Sufragio.*
+
+describe "Elecciones 2017" {
+	
+	var cambiemos
+	var fpv
+	var izquierda
+	var legislativas
+	 
+	fixture{
+		cambiemos = new Lista(15000)
+		fpv = new Lista(10000)
+		izquierda = new Lista(200)
+		legislativas = new Sufragio(#{cambiemos, fpv, izquierda})
+	}
+	
+	test "Se realizan las selecciones y se determina un ganador"{
+		assert.equals()
+	}
+	
+}
