@@ -1,5 +1,6 @@
 import Habitante.*
 import Equipamento.*
+import Planeta.*
 
 describe "TestForksAwaken"{
 	
@@ -8,6 +9,7 @@ describe "TestForksAwaken"{
 	var stormTrooper
 	var droid
 	var clon
+	var aldeeran
 	
 	fixture{
 		habitanteValiente = new Habitante(5, 1)
@@ -15,10 +17,15 @@ describe "TestForksAwaken"{
 		stormTrooper = new Soldado(5, 1, [cuchillo, pistolaLaser, guantes, granadaDePlasma])
 		droid = new Soldado(1, 8, [cuchillo, bazooka, ametralladoraLaser])
 		clon  = new Soldado(3, 3, [cuchillo, pistolaLaser])
+		aldeeran = new Planeta([ droid, clon, habitanteValiente ])
 	}
 	
 	test "Comprobar la potencia del stormTrooper"{
 		assert.equals(51, stormTrooper.obtenerPotencia())
+	}
+	
+	test "Comprobar la potencia del planeta Alderaan"{
+		assert.equals(112, aldeeran.obtenerPotencia())
 	}
 	
 }
