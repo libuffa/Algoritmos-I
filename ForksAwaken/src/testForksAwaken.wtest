@@ -13,6 +13,7 @@ describe "TestForksAwaken"{
 	var aldeeran
 	var obiWan
 	var emoKylo
+	var anakyn
 	
 	fixture{
 		habitanteValiente = new Habitante(5, 1)
@@ -22,6 +23,7 @@ describe "TestForksAwaken"{
 		clon  = new Soldado(3, 3, [cuchillo, pistolaLaser])
 		obiWan = new Maestro(10, 12, 12000, 20, jedi, 21)
 		emoKylo = new Maestro(5,14, 8000, 40, sith, 5)
+		anakyn = new Maestro(14, 15, 20000, 35, jedi, 11)
 		aldeeran = new Planeta([ droid, clon, habitanteValiente, obiWan ])
 	}
 	
@@ -47,6 +49,11 @@ describe "TestForksAwaken"{
 	
 	test "Comprobar si soy una orden"{
 		assert.that(aldeeran.soyUnaOrden())
+	}
+	
+	test "Corrompido por el lado oscuro, el joven Skywalker ha sido. el muchacho que adiestraste desaparecido ha… consumido, por Darth Vader"{
+		anakyn.cargaEmocional(120)
+		assert.equals( sith, anakyn.obtenerTipoDeMaestro() )
 	}
 	
 }

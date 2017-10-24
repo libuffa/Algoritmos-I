@@ -46,5 +46,8 @@ class Maestro inherits Habitante {
 	
 	method obtenerTipoDeMaestro() = tipoDeMaestro
 	
-	method cargaEmocional(_cargaEmocional) = tipoDeMaestro.cargaEmocional()
+	method cargaEmocional(_cargaEmocional) {
+		tipoDeMaestro.cargaEmocional(_cargaEmocional)
+		tipoDeMaestro = tipoDeMaestro.verificarEstadoEmocional()
+		}
 }

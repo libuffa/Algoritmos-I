@@ -5,13 +5,13 @@ object jedi {
 	
 	method obtenerPotenciaMaestro(_potenciaSable, _tiempo) = _potenciaSable * _tiempo
 	
-	method convertirJedi(){
-		if( pazInteriorInicial < 0 ) sith
+	method verificarEstadoEmocional(){
+		if( pazInteriorInicial < 0 ) return sith
+		else return self
 	}
 	
 	method cargaEmocional(_cargaEmocional){
 		pazInteriorInicial += _cargaEmocional
-		self.convertirJedi()
 	}
 }
 
@@ -23,13 +23,10 @@ object sith {
 	
 	method obtenerPotenciaSableSith(_potenciaSable) = _potenciaSable * 2
 	
-	method convertirSith(){
-		if( nivelDeOdioInicial > 0 ) jedi
-	}
+	method convertir() =  jedi
 	
 	method cargaEmocional(_cargaEmocional){
 		nivelDeOdioInicial += _cargaEmocional
-		self.convertirSith()
 	}
 }
 
