@@ -1,0 +1,24 @@
+import Habitante.*
+import Equipamento.*
+
+describe "TestForksAwaken"{
+	
+	var habitanteValiente
+	var habitanteInteligente
+	var stormTrooper
+	var droid
+	var clon
+	
+	fixture{
+		habitanteValiente = new Habitante(5, 1)
+		habitanteInteligente = new Habitante(2, 7)
+		stormTrooper = new Soldado(5, 1, [cuchillo, pistolaLaser, guantes, granadaDePlasma])
+		droid = new Soldado(1, 8, [cuchillo, bazooka, ametralladoraLaser])
+		clon  = new Soldado(3, 3, [cuchillo, pistolaLaser])
+	}
+	
+	test "Comprobar la potencia del stormTrooper"{
+		assert.equals(51, stormTrooper.obtenerPotencia())
+	}
+	
+}
