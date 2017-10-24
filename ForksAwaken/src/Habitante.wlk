@@ -10,6 +10,7 @@ class Habitante {
 	}
 	
 	method obtenerPotencia() = valentia + inteligencia
+
 }
 
 class Soldado inherits Habitante {
@@ -42,4 +43,8 @@ class Maestro inherits Habitante {
 	method obtenerPotenciaMidiclorianos() = midiclorianos * 0.0001
 	
 	method obtenerPotenciaSableDeLuz() = tipoDeMaestro.obtenerPotenciaMaestro(potenciaSable, tiempo)
+	
+	method obtenerTipoDeMaestro() = tipoDeMaestro
+	
+	method cargaEmocional(_cargaEmocional) = tipoDeMaestro.cargaEmocional()
 }

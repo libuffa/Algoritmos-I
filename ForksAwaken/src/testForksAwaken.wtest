@@ -20,9 +20,9 @@ describe "TestForksAwaken"{
 		stormTrooper = new Soldado(5, 1, [cuchillo, pistolaLaser, guantes, granadaDePlasma])
 		droid = new Soldado(1, 8, [cuchillo, bazooka, ametralladoraLaser])
 		clon  = new Soldado(3, 3, [cuchillo, pistolaLaser])
-		aldeeran = new Planeta([ droid, clon, habitanteValiente ])
 		obiWan = new Maestro(10, 12, 12000, 20, jedi, 21)
 		emoKylo = new Maestro(5,14, 8000, 40, sith, 5)
+		aldeeran = new Planeta([ droid, clon, habitanteValiente, obiWan ])
 	}
 	
 	test "Comprobar la potencia del stormTrooper"{
@@ -30,7 +30,7 @@ describe "TestForksAwaken"{
 	}
 	
 	test "Comprobar la potencia del planeta Alderaan"{
-		assert.equals(112, aldeeran.obtenerPotencia())
+		assert.equals(555.20, aldeeran.obtenerPotencia())
 	}
 	
 	test "Comprobar la potencia de obiWan"{
@@ -39,6 +39,14 @@ describe "TestForksAwaken"{
 	
 	test "Comprobar la potencia de emoKylo"{
 		assert.equals(104.80, emoKylo.obtenerPotencia())		
+	}
+	
+	test "Comprobar que tomo los tres habitantes mas poderosos"{
+		assert.equals( [obiWan, clon, droid], aldeeran.obtenerTresHabitantesMasPoderosos() )
+	}
+	
+	test "Comprobar si soy una orden"{
+		assert.that(aldeeran.soyUnaOrden())
 	}
 	
 }
