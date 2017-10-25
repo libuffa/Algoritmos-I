@@ -51,9 +51,14 @@ describe "TestForksAwaken"{
 		assert.that(aldeeran.soyUnaOrden())
 	}
 	
-	test "Corrompido por el lado oscuro, el joven Skywalker ha sido. el muchacho que adiestraste desaparecido ha… consumido, por Darth Vader"{
-		anakyn.cargaEmocional(120)
+	test "Corrompido por el lado oscuro, el joven Skywalker ha sido. el muchacho que adiestraste desaparecido haï¿½ consumido, por Darth Vader"{
+		anakyn.cargaEmocional(-120)
 		assert.equals( sith, anakyn.obtenerTipoDeMaestro() )
+	}
+	
+	test "Darth Vader se encuentra en una situaciÃ³n extrema en la cual Lord Palpatine intenta convencerlo de que asesine a su hijo Luke"{
+		anakyn.cargaEmocional(120)
+		assert.equals( jedi, anakyn.obtenerTipoDeMaestro() )
 	}
 	
 }

@@ -30,12 +30,14 @@ class Maestro inherits Habitante {
 	var potenciaSable
 	var tipoDeMaestro
 	var tiempo
+	var cargaEmocional
 	
 	constructor(_valentia, _inteligencia, _midiclorianos, _potenciaSable, _tipoDeMaestro, _tiempo) = self(_valentia, _inteligencia){
 		midiclorianos = _midiclorianos
 		potenciaSable = _potenciaSable
 		tipoDeMaestro = _tipoDeMaestro
 		tiempo = _tiempo
+		cargaEmocional = self.obtenerCargaEmocionalInicial()
 	}
 	
 	override method obtenerPotencia() = super() + self.obtenerPotenciaMidiclorianos() + self.obtenerPotenciaSableDeLuz()
@@ -46,8 +48,10 @@ class Maestro inherits Habitante {
 	
 	method obtenerTipoDeMaestro() = tipoDeMaestro
 	
+	method obtenerCargaEmocionalInicial() = tipoDeMaestro.obtenerCargaEmocionalInicial()
+	
 	method cargaEmocional(_cargaEmocional) {
-		tipoDeMaestro.cargaEmocional(_cargaEmocional)
-		tipoDeMaestro = tipoDeMaestro.verificarEstadoEmocional()
+		cargaEmocional += _cargaEmocional
+		tipoDeMaestro = tipoDeMaestro.verificarSiAlteraMiVisionDelMundo(cargaEmocional)
 		}
 }
