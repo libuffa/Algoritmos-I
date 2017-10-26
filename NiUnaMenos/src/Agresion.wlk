@@ -31,6 +31,8 @@ class AgresionFisica inherits Agresion{
 	}
 	
 	override method esAgresionGrave() = true
+	
+	override method esAgresionIgnea() = super() || (elementoUtilizado == "combustible")
 }
 
 object palabrasInaceptables{

@@ -7,12 +7,16 @@ describe "Test del programa Ni Una Menos"{
 	var agresionDos
 	var agresionTres
 	var agresionCuatro
+	var agresionCinco
+	var agresionSeis
 	
 	fixture{
 		agresionUno = new Agresion("salta", "Jorgito", ["Te", "odio", "puta"])
-		agresionDos = new AgresionFisica("santa cruz", "daniel", ["Ahora", "vas", "a", "ver"], "cuchillo")
+		agresionDos = new AgresionFisica("santa cruz", "daniel", ["Ahora", "vas", "a", "ser", "fuego"], "cuchillo")
 		agresionTres = new Agresion("bs as", "lautaro", ["no", "te", "quiero", "mas"])
 		agresionCuatro = new Agresion("bs as", "german", ["sos", "un", "fuego"])
+		agresionCinco = new AgresionFisica("tierra del fuego", "anibal", ["cagaste"], "combustible")
+		agresionSeis = new AgresionFisica("la quiaca", "aritmetio", ["me", "voy"], "lapiz")
 	}
 	
 	test "Verificar si es una agresión"{
@@ -41,5 +45,14 @@ describe "Test del programa Ni Una Menos"{
 
 	test "Saber si una agresion comun no es ignea"{
 		assert.notThat(agresionUno.esAgresionIgnea())
+	}
+	
+	test "Saber si una agresion fisica es ignea"{
+		assert.that(agresionCinco.esAgresionIgnea())
+		assert.that(agresionDos.esAgresionIgnea())
+	}
+	
+	test "Saber si una agresion fisica no es ignea"{
+		assert.notThat(agresionSeis.esAgresionIgnea())
 	}
 }
