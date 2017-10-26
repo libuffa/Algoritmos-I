@@ -21,11 +21,15 @@ describe "Test del programa Ni Una Menos"{
 		assert.that(agresionDos.esAgresion())
 	}
 	
-	test "Saber si una agresión comun es grave"{
+	test "Saber si una agresion comun es grave"{
 		assert.that(agresionUno.esAgresionGrave())
 	}
 	
-	test "Saber si no es una agresión comun grave"{
+	test "Saber si no es una agresion comun grave"{
 		assert.notThat(agresionTres.esAgresionGrave())
+	}
+	
+	test "Saber si una agresion fisica siempre es grave"{
+		assert.that(agresionDos.esAgresionGrave())
 	}
 }

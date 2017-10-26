@@ -27,6 +27,8 @@ class AgresionFisica inherits Agresion{
 	= super(_lugar, _personaEfectuante, _palabrasUtilizadas){
 		elementoUtilizado = _elementoUtilizado
 	}
+	
+	override method esAgresionGrave() = true
 }
 
 object palabrasInaceptables{
