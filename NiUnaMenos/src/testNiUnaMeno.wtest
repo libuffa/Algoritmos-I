@@ -10,6 +10,7 @@ describe "Test del programa Ni Una Menos"{
 	var agresionCuatro
 	var agresionCinco
 	var agresionSeis
+	var agresionSiete
 	var natalia
 	var maria
 	
@@ -20,8 +21,9 @@ describe "Test del programa Ni Una Menos"{
 		agresionCuatro = new Agresion("bs as", "german", ["sos", "un", "fuego"])
 		agresionCinco = new AgresionFisica("tierra del fuego", "anibal", ["cagaste"], "combustible")
 		agresionSeis = new AgresionFisica("la quiaca", "aritmetio", ["me", "voy"], "lapiz")
-		natalia = new Persona(["jorgito", "maria"])
-		maria = new Persona(["lautaro", "martina", "candela"])
+		agresionSiete = new AgresionFisica("salta", "jorgito", ["ah", "si?"], "martillo")
+		natalia = new Persona(["jorgito", "maria"], [agresionSiete])
+		maria = new Persona(["lautaro", "martina", "candela"], [agresionTres, agresionCuatro])
 	}
 	
 	test "Saber si una agresion comun es grave"{
@@ -55,6 +57,23 @@ describe "Test del programa Ni Una Menos"{
 	
 	test "verificar si una persona miedosa nunca se anima a denunciar"{
 		natalia.miActitud(miedoso)
+		assert.notThat(natalia.meAnimoADenunciar(agresionUno))
+	}
+	
+	test "verificar la cantidad de agresiones de una misma persona"{
+		var paciencia = new Paciente(1)
+		natalia.agregarAgresion(agresionUno)
+		assert.equals(2, paciencia.cantidadDeAgresionesDeLaPersonaEfectuante(agresionUno, natalia.obtenerAgresiones()))
+	}
+	
+	test "verificar si una persona paciente se anima a denunciar"{
+		natalia.miActitud(new Paciente(1))
+		natalia.agregarAgresion(agresionUno)
+		assert.that(natalia.meAnimoADenunciar(agresionUno))
+	}
+	
+	test "verificar si una persona paciente no se anima a denunciar"{
+		natalia.miActitud(new Paciente(3))
 		assert.notThat(natalia.meAnimoADenunciar(agresionUno))
 	}
 }
