@@ -1,5 +1,6 @@
 import Agresion.*
 import Persona.*
+import Actitud.*
 
 describe "Test del programa Ni Una Menos"{
 	
@@ -52,11 +53,8 @@ describe "Test del programa Ni Una Menos"{
 		assert.notThat(agresionSeis.esAgresionIgnea())
 	}
 	
-	test "verificar si una persona se anima a denunciar"{
-		assert.that(natalia.meAnimoADenunciar(agresionUno))
-	}
-	
-	test "verificar si una persona no se anima a denunciar"{
-		assert.notThat(maria.meAnimoADenunciar(agresionTres))
+	test "verificar si una persona miedosa nunca se anima a denunciar"{
+		natalia.miActitud(miedoso)
+		assert.notThat(natalia.meAnimoADenunciar(agresionUno))
 	}
 }
