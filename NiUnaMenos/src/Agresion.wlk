@@ -11,7 +11,7 @@ class Agresion {
 		palabrasUtilizadas = _palabrasUtilizadas
 	}
 	
-	method esAgresion() = true
+	method obtenerPersonaEfectuante() = personaEfectuante
 	
 	method esAgresionGrave() = palabrasUtilizadas.any({ palabraUtilizada =>
 		palabrasInaceptables.obtenerPalabrasInaceptables().contains(palabraUtilizada)

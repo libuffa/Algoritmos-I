@@ -13,22 +13,14 @@ describe "Test del programa Ni Una Menos"{
 	var maria
 	
 	fixture{
-		agresionUno = new Agresion("salta", "Jorgito", ["Te", "odio", "puta"])
+		agresionUno = new Agresion("salta", "jorgito", ["Te", "odio", "puta"])
 		agresionDos = new AgresionFisica("santa cruz", "daniel", ["Ahora", "vas", "a", "ser", "fuego"], "cuchillo")
 		agresionTres = new Agresion("bs as", "lautaro", ["no", "te", "quiero", "mas"])
 		agresionCuatro = new Agresion("bs as", "german", ["sos", "un", "fuego"])
 		agresionCinco = new AgresionFisica("tierra del fuego", "anibal", ["cagaste"], "combustible")
 		agresionSeis = new AgresionFisica("la quiaca", "aritmetio", ["me", "voy"], "lapiz")
-		natalia = new Persona()
-		maria = new Persona()
-	}
-	
-	test "Verificar si es una agresión"{
-		assert.that(agresionTres.esAgresion())
-	}
-	
-	test "Verificar si es una agresión fisica"{
-		assert.that(agresionDos.esAgresion())
+		natalia = new Persona(["jorgito", "maria"])
+		maria = new Persona(["lautaro", "martina", "candela"])
 	}
 	
 	test "Saber si una agresion comun es grave"{
@@ -60,11 +52,11 @@ describe "Test del programa Ni Una Menos"{
 		assert.notThat(agresionSeis.esAgresionIgnea())
 	}
 	
-	test "verificar si se anima a denunciar"{
+	test "verificar si una persona se anima a denunciar"{
 		assert.that(natalia.meAnimoADenunciar(agresionUno))
 	}
 	
-	test "verificar si no se anima a denunciar"{
+	test "verificar si una persona no se anima a denunciar"{
 		assert.notThat(maria.meAnimoADenunciar(agresionTres))
 	}
 }
