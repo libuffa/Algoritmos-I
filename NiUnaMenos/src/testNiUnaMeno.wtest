@@ -5,10 +5,12 @@ describe "Test del programa Ni Una Menos"{
 	
 	var agresionUno
 	var agresionDos
+	var agresionTres
 	
 	fixture{
-		agresionUno = new Agresion("salta", "Jorgito", ["Te", "odio", "Puta"])
+		agresionUno = new Agresion("salta", "Jorgito", ["Te", "odio", "puta"])
 		agresionDos = new AgresionFisica("santa cruz", "daniel", ["Ahora", "vas", "a", "ver"], "cuchillo")
+		agresionTres = new Agresion("bs as", "lautaro", ["no", "te", "quiero", "mas"])
 	}
 	
 	test "Verificar si es una agresión"{
@@ -17,5 +19,13 @@ describe "Test del programa Ni Una Menos"{
 	
 	test "Verificar si es una agresión fisica"{
 		assert.that(agresionDos.esAgresion())
+	}
+	
+	test "Saber si una agresión comun es grave"{
+		assert.that(agresionUno.esAgresionGrave())
+	}
+	
+	test "Saber si no es una agresión comun grave"{
+		assert.notThat(agresionTres.esAgresionGrave())
 	}
 }

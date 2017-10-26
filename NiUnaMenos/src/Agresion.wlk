@@ -12,6 +12,10 @@ class Agresion {
 	}
 	
 	method esAgresion() = true
+	
+	method esAgresionGrave() = palabrasUtilizadas.any({ palabraUtilizada =>
+		palabrasInaceptables.obtenerPalabrasInaceptables().contains(palabraUtilizada)
+	})
 
 }
 
@@ -23,4 +27,10 @@ class AgresionFisica inherits Agresion{
 	= super(_lugar, _personaEfectuante, _palabrasUtilizadas){
 		elementoUtilizado = _elementoUtilizado
 	}
+}
+
+object palabrasInaceptables{
+	var palabrasInaceptables = ["puta", "zorra", "matar", "inutil"]
+	
+	method obtenerPalabrasInaceptables() = palabrasInaceptables
 }
