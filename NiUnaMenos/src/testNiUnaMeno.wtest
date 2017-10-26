@@ -1,0 +1,21 @@
+import Agresion.*
+import Persona.*
+
+describe "Test del programa Ni Una Menos"{
+	
+	var agresionUno
+	var agresionDos
+	
+	fixture{
+		agresionUno = new Agresion("salta", "Jorgito", ["Te", "odio", "Puta"])
+		agresionDos = new AgresionFisica("santa cruz", "daniel", ["Ahora", "vas", "a", "ver"], "cuchillo")
+	}
+	
+	test "Verificar si es una agresión"{
+		assert.that(agresionUno.esAgresion())
+	}
+	
+	test "Verificar si es una agresión fisica"{
+		assert.that(agresionDos.esAgresion())
+	}
+}
