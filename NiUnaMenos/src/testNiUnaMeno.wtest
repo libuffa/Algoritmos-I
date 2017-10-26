@@ -6,11 +6,13 @@ describe "Test del programa Ni Una Menos"{
 	var agresionUno
 	var agresionDos
 	var agresionTres
+	var agresionCuatro
 	
 	fixture{
 		agresionUno = new Agresion("salta", "Jorgito", ["Te", "odio", "puta"])
 		agresionDos = new AgresionFisica("santa cruz", "daniel", ["Ahora", "vas", "a", "ver"], "cuchillo")
 		agresionTres = new Agresion("bs as", "lautaro", ["no", "te", "quiero", "mas"])
+		agresionCuatro = new Agresion("bs as", "german", ["sos", "un", "fuego"])
 	}
 	
 	test "Verificar si es una agresión"{
@@ -31,5 +33,13 @@ describe "Test del programa Ni Una Menos"{
 	
 	test "Saber si una agresion fisica siempre es grave"{
 		assert.that(agresionDos.esAgresionGrave())
+	}
+	
+	test "Saber si una agresion comun es ignea"{
+		assert.that(agresionCuatro.esAgresionIgnea())
+	}
+
+	test "Saber si una agresion comun no es ignea"{
+		assert.notThat(agresionUno.esAgresionIgnea())
 	}
 }

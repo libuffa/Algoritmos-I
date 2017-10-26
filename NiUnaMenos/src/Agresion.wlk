@@ -16,6 +16,8 @@ class Agresion {
 	method esAgresionGrave() = palabrasUtilizadas.any({ palabraUtilizada =>
 		palabrasInaceptables.obtenerPalabrasInaceptables().contains(palabraUtilizada)
 	})
+	
+	method esAgresionIgnea() = palabrasUtilizadas.contains("fuego")
 
 }
 
