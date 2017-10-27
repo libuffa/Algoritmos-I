@@ -96,4 +96,14 @@ describe "Test del programa Ni Una Menos"{
 		natalia.agregarAgresion(agresionCuatro)
 		assert.notThat(natalia.meAnimoADenunciar(agresionUno))
 	}
+	
+	test "Verificar si una persona militante se anima a denunciar"{
+		natalia.miActitud(militante)
+		assert.that(natalia.meAnimoADenunciar(agresionUno))
+	}
+	
+	test "Verificar si una persona militante no se anima a denunciar"{
+		maria.miActitud(militante)
+		assert.notThat(maria.meAnimoADenunciar(agresionTres))
+	}
 }

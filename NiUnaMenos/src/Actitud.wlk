@@ -22,4 +22,7 @@ object aguerrido{
 	method meAnimoADenunciar(_agresion, _agresiones) = _agresiones.any({ agresion => agresion.esAgresionGrave() }) 
 }
 
+object militante{
+	method meAnimoADenunciar(_agresion, _agresiones) = true
+}
 
