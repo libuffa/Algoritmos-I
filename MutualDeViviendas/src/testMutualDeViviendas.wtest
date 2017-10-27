@@ -1,14 +1,18 @@
 import Mutual.*
 import Familia.*
+import Vivienda.*
 
 describe "test de mutual de viviendas"{
 	
+	var viviendaUno
 	var gonzales
 	var enrique
 	var julieta
 	var martin
 	
+	
 	fixture{
+		viviendaUno = new Vivienda(20)
 		enrique = new Persona("enrique", 50)
 		julieta = new Persona("julieta", 46)
 		martin = new Persona("martin", 21)
@@ -21,7 +25,7 @@ describe "test de mutual de viviendas"{
 	}
 	
 	test "la mutual recibe una vivienda y estima horas en arreglarla"{
-		assert.equals(20, mutual.estimarHorasDeTrabajo("vivienda"))
+		assert.equals(20, viviendaUno.obtenerHorasEstimadas())
 	}
 	
 	test "verificar que la familia tiene titular"{
@@ -30,5 +34,11 @@ describe "test de mutual de viviendas"{
 	
 	test "verificar que la familia tiene integrantes"{
 		assert.equals(2, gonzales.cantidadOtrosIntegrantesFamilia())
+	}
+	
+	test "trabajar en la vivienda y cargar las horas en la vivienda"{
+		//mutual.trabajarEnVivienda(viviendaUno, martin, 6, "cortar madera")
+		viviendaUno.arreglarme(6)
+		assert.equals(6, viviendaUno.obtenerHorasTrabajadas())
 	}
 }
