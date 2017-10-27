@@ -11,6 +11,7 @@ describe "Test del programa Ni Una Menos"{
 	var agresionCinco
 	var agresionSeis
 	var agresionSiete
+	var agresionOcho
 	var natalia
 	var maria
 	
@@ -22,8 +23,9 @@ describe "Test del programa Ni Una Menos"{
 		agresionCinco = new AgresionFisica("tierra del fuego", "anibal", ["cagaste"], "combustible")
 		agresionSeis = new AgresionFisica("la quiaca", "aritmetio", ["me", "voy"], "lapiz")
 		agresionSiete = new AgresionFisica("salta", "jorgito", ["ah", "si?"], "martillo")
-		natalia = new Persona(["jorgito", "maria"], [agresionSiete])
-		maria = new Persona(["lautaro", "martina", "candela"], [agresionTres, agresionCuatro])
+		agresionOcho = new Agresion("salta", "jorgito", ["ah", "si?", "inutil"])
+		natalia = new Persona(["jorgito", "maria"])
+		maria = new Persona(["lautaro", "martina", "candela"])
 	}
 	
 	test "Saber si una agresion comun es grave"{
@@ -57,23 +59,41 @@ describe "Test del programa Ni Una Menos"{
 	
 	test "verificar si una persona miedosa nunca se anima a denunciar"{
 		natalia.miActitud(miedoso)
+		natalia.agregarAgresion(agresionSiete)
 		assert.notThat(natalia.meAnimoADenunciar(agresionUno))
 	}
 	
 	test "verificar la cantidad de agresiones de una misma persona"{
 		var paciencia = new Paciente(1)
+		natalia.agregarAgresion(agresionSiete)
 		natalia.agregarAgresion(agresionUno)
-		assert.equals(2, paciencia.cantidadDeAgresionesDeLaPersonaEfectuante(agresionUno, natalia.obtenerAgresiones()))
+		assert.equals(2, paciencia.cantidadDeAgresionesDeLaPersonaEfectuante(agresionOcho, natalia.obtenerAgresiones()))
 	}
 	
 	test "verificar si una persona paciente se anima a denunciar"{
 		natalia.miActitud(new Paciente(1))
+		natalia.agregarAgresion(agresionSiete)
 		natalia.agregarAgresion(agresionUno)
-		assert.that(natalia.meAnimoADenunciar(agresionUno))
+		assert.that(natalia.meAnimoADenunciar(agresionOcho))
 	}
 	
 	test "verificar si una persona paciente no se anima a denunciar"{
 		natalia.miActitud(new Paciente(3))
+		natalia.agregarAgresion(agresionSiete)
+		natalia.agregarAgresion(agresionUno)
+		assert.notThat(natalia.meAnimoADenunciar(agresionOcho))
+	}
+	
+	test "verificar si una persona aguerrida se anima a denunciar"{
+		natalia.miActitud(aguerrido)
+		natalia.agregarAgresion(agresionSiete)
+		natalia.agregarAgresion(agresionUno)
+		assert.that(natalia.meAnimoADenunciar(agresionOcho))
+	}
+	
+	test "verificar si una persona aguerrida no se anima a denunciar"{
+		natalia.miActitud(aguerrido)
+		natalia.agregarAgresion(agresionCuatro)
 		assert.notThat(natalia.meAnimoADenunciar(agresionUno))
 	}
 }

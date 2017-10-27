@@ -5,9 +5,8 @@ class Persona {
 	var actitud
 	var agresiones = []
 	
-	constructor(_composicionFamiliar, _agresiones){
+	constructor(_composicionFamiliar){
 		composicionFamiliar = _composicionFamiliar
-		agresiones = _agresiones
 	}
 	
 	method obtenerAgresiones() = agresiones

@@ -18,4 +18,8 @@ class Paciente{
 	method meAnimoADenunciar(_agresion, _agresiones) = self.cantidadDeAgresionesDeLaPersonaEfectuante(_agresion, _agresiones) > umbralDeTolerancia
 }
 
+object aguerrido{
+	method meAnimoADenunciar(_agresion, _agresiones) = _agresiones.any({ agresion => agresion.esAgresionGrave() }) 
+}
+
 
