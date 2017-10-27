@@ -20,3 +20,7 @@ object tango {
 	
 	method usaSombrero(_cantante) = _cantante.obtenerIndumentaria().contains("sombrero")
 }
+
+object cumbia {
+	method perteneceAlGenero(_cantante) = _cantante.obtenerHabilidadDeBaile()
+}

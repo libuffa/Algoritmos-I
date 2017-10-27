@@ -22,10 +22,10 @@ describe "test de elegidos"{
 		axel = new Tecnico("tango")
 		tito = new Publico()
 		maria = new Publico(tradicionalista)
-		mariana = new Cantante(23, "F", "rock", ["tachas", "cadenas"], false)
-		flor = new Cantante(31, "F", "samba", ["bikini"], true)
-		tincho = new Cantante(24, "M", "folklore", ["poncho", "alpargata"], false)
-		ernesto = new Cantante(63, "M", "tango", ["sombrero", "traje"], true)
+		mariana = new Cantante(23, "F", "rock", ["tachas", "cadenas"], false, true)
+		flor = new Cantante(31, "F", "samba", ["bikini"], true, true)
+		tincho = new Cantante(24, "M", "folklore", ["poncho", "alpargata"], false, false)
+		ernesto = new Cantante(63, "M", "tango", ["sombrero", "traje"], true, false)
 	}
 	
 	test "verificar que un juez vota positivamente y le da 10 puntos"{
@@ -101,5 +101,13 @@ describe "test de elegidos"{
 	
 	test "verificar si el cantante no pertenece al tango"{
 		assert.notThat(tango.perteneceAlGenero(mariana))
+	}
+	
+	test "verificar si el cantante pertenece a la cumbia"{
+		assert.that(cumbia.perteneceAlGenero(flor))
+	}
+	
+	test "verificar si el cantante no pertenece a la cumbia"{
+		assert.notThat(cumbia.perteneceAlGenero(tincho))
 	}
 }
