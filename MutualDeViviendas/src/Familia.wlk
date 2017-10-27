@@ -3,15 +3,21 @@ class Familia {
 
 	var titularFamilia
 	var otrosIntegrantesFamilia = []
+	var minimoDeHorasDeTrabajo
 	
-	constructor(_titularFamilia, _otrosIntegrantesFamilia){
+	constructor(_titularFamilia, _otrosIntegrantesFamilia, _minimoDeHorasDeTrabajo){
 		titularFamilia = _titularFamilia
 		otrosIntegrantesFamilia = _otrosIntegrantesFamilia
+		minimoDeHorasDeTrabajo = _minimoDeHorasDeTrabajo
 	}
 	
 	method obtenerTitularFamilia() = titularFamilia
 	method obtenerOtrosIntegrantesFamilia() = otrosIntegrantesFamilia
 	method cantidadOtrosIntegrantesFamilia() = otrosIntegrantesFamilia.size()
+	method obtenerTotalDeHorasTrabajadas() = self.obtenerTotalDeHorasTrabajadasDeOtrosIntegrantes() + titularFamilia.obtenerCantidadDeHorasTrabajadas()
+	method obtenerTotalDeHorasTrabajadasDeOtrosIntegrantes() = otrosIntegrantesFamilia.sum({ integrante =>
+		integrante.obtenerCantidadDeHorasTrabajadas()
+	})
 }
 
 class Persona {

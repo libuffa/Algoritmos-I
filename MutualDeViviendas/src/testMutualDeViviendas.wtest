@@ -16,7 +16,7 @@ describe "test de mutual de viviendas"{
 		enrique = new Persona("enrique", 50)
 		julieta = new Persona("julieta", 46)
 		martin = new Persona("martin", 21)
-		gonzales = new Familia(enrique, [julieta, martin])
+		gonzales = new Familia(enrique, [julieta, martin], 12)
 		mutual.agregarFamiliasALaMutual([gonzales])
 	}
 	
@@ -50,5 +50,11 @@ describe "test de mutual de viviendas"{
 	test "registrar las horas trabajadas de martin"{
 		enrique.realizarTrabajo(6)
 		assert.equals(6, enrique.obtenerCantidadDeHorasTrabajadas())
+	}
+	
+	test "verificar si impactaron las horas en la familia gonzales"{
+		enrique.realizarTrabajo(6)
+		julieta.realizarTrabajo(4)
+		assert.equals(10, gonzales.obtenerTotalDeHorasTrabajadas())
 	}
 }
