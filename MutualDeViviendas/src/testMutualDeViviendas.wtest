@@ -2,8 +2,15 @@ import Mutual.*
 
 describe "test de mutual de viviendas"{
 	
-	test "verificar que una mutual de viviendas tiene un conjunto de familias"{
+	fixture{
 		mutual.agregarFamiliasALaMutual(["perez", "lopez", "gonzales"])
+	}
+	
+	test "verificar que una mutual de viviendas tiene un conjunto de familias"{
 		assert.equals(3, mutual.cantidadDeFamilias())
+	}
+	
+	test "la mutual recibe una vivienda y estima horas en arreglarla"{
+		assert.equals(20, mutual.estimarHorasDeTrabajo("vivienda"))
 	}
 }
