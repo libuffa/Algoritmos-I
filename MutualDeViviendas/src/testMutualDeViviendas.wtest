@@ -1,0 +1,9 @@
+import Mutual.*
+
+describe "test de mutual de viviendas"{
+	
+	test "verificar que una mutual de viviendas tiene un conjunto de familias"{
+		mutual.agregarFamiliasALaMutual(["perez", "lopez", "gonzales"])
+		assert.equals(3, mutual.cantidadDeFamilias())
+	}
+}
