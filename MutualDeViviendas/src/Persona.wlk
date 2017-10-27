@@ -39,3 +39,7 @@ object electricista{
 object decoradora{
 	method horasDeTrabajo(_horasTrabajadas) = _horasTrabajadas * 2
 }
+
+object desordenado{
+	method horasDeTrabajo(_horasTrabajadas) = _horasTrabajadas * 0.75
+}

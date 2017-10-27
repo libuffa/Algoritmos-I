@@ -18,6 +18,7 @@ describe "test de mutual de viviendas"{
 	var aldana
 	var pepe
 	var marisa
+	var esteban
 	
 	
 	fixture{
@@ -33,6 +34,7 @@ describe "test de mutual de viviendas"{
 		pereyra  = new Familia(aldana, [pedro], 30)
 		pepe = new Persona("pepe", 32, electricista)
 		marisa = new Persona("marisa", 41, decoradora)
+		esteban = new Persona("esteban", 21, desordenado)
 		mutual.agregarFamiliasALaMutual([gonzales, pereyra])
 	}
 	
@@ -162,5 +164,9 @@ describe "test de mutual de viviendas"{
 	
 	test "verificar que se aumentan las horas de marisa"{
 		assert.equals(8, marisa.verificarHorasDeTrabajo(4))
+	}
+	
+	test "verificar que disminuyan las horas de esteban"{
+		assert.equals(7.5, esteban.verificarHorasDeTrabajo(10))
 	}
 }
