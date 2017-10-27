@@ -14,10 +14,21 @@ class Juez {
 	}
 	
 	method obtenerVotoNegativo(_cantante){
-		_cantante.impactarPuntaje( _cantante.obtenerPuntaje() * (-0.5) )
+		_cantante.impactarPuntaje( -5 )
 	}
 	
 	method ingresarTipoDeJuez(_tipoDeJuez){
 		tipoDeJuez = _tipoDeJuez
+	}
+}
+
+class Publico inherits Juez {
+	
+	override method obtenerVotoPositivo(_cantante){
+		_cantante.impactarPuntaje(2)
+	}
+	
+	override method obtenerVotoNegativo(_cantante){
+		_cantante.impactarPuntaje( -1 )
 	}
 }

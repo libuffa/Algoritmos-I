@@ -8,6 +8,8 @@ describe "test de elegidos"{
 	var tinelli
 	var diegoTorres
 	var axel
+	var tito
+	var maria
 	var mariana
 	var flor
 	var tincho
@@ -16,6 +18,8 @@ describe "test de elegidos"{
 		tinelli = new Juez(baboso)
 		diegoTorres = new Juez(tradicionalista)
 		axel = new Tecnico("tango")
+		tito = new Publico(baboso)
+		maria = new Publico(tradicionalista)
 		mariana = new Cantante(23, "F", "rock")
 		flor = new Cantante(31, "F", "samba")
 		tincho = new Cantante(24, "M", "tango")
@@ -28,7 +32,7 @@ describe "test de elegidos"{
 	
 	test "verificar que un juez vota negativamente y le resta la mitad de los puntos"{
 		tinelli.obtenerVotoNegativo(mariana)
-		assert.equals(0, mariana.obtenerPuntaje())
+		assert.equals(-5, mariana.obtenerPuntaje())
 	}
 	
 	test "verificar que un juez baboso vota positivamente a una cantante joven"{
@@ -57,5 +61,17 @@ describe "test de elegidos"{
 	
 	test "verificar si un juez tecnico vota negativamente a un cantante de samba"{
 		assert.notThat(axel.obtenerMiVoto(flor))
+	}
+	
+	test "verificar que el publico tambien vote de manera positiva"{
+		tinelli.obtenerVotoPositivo(mariana)
+		tito.obtenerVotoPositivo(mariana)
+		assert.equals(12, mariana.obtenerPuntaje())
+	}
+	
+	test "verificar que el publico tambien vote de manera negativa"{
+		tinelli.obtenerVotoNegativo(mariana)
+		maria.obtenerVotoNegativo(mariana)
+		assert.equals(-6, mariana.obtenerPuntaje())
 	}
 }
