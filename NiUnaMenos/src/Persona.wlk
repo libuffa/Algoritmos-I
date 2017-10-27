@@ -38,5 +38,13 @@ class Persona {
 	method unirmeAOrganizacionSocial(){
 		actitud = militante
 	}
+	
+	method asumirActitudAcompaniante(_persona){
+		actitud = _persona.obtenerActitud()
+	}
+	
+	method recibirAmenazaDeMuerte(){
+		actitud = actitud.efectoAmenazaDeMuerte()
+	}
 
 }

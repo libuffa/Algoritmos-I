@@ -119,4 +119,34 @@ describe "Test del programa Ni Una Menos"{
 		maria.unirmeAOrganizacionSocial()
 		assert.equals(militante, maria.obtenerActitud())
 	}
+	
+	test "asumir la actitud de la persona que me acompaña"{
+		natalia.miActitud(aguerrido)
+		maria.asumirActitudAcompaniante(natalia)
+		assert.equals(aguerrido, maria.obtenerActitud())
+	}
+	
+	test "una persona miedosa recibe amenaza de muerte"{
+		natalia.miActitud(miedoso)
+		natalia.recibirAmenazaDeMuerte()
+		assert.equals(miedoso, natalia.obtenerActitud())
+	}
+	
+	test "una persona paciente recibe amenaza de muerte"{
+		natalia.miActitud(new Paciente(4))
+		natalia.recibirAmenazaDeMuerte()
+		assert.equals(new Paciente(4), natalia.obtenerActitud())
+	}
+	
+	test "una persona aguerrida recibe amenaza de muerte"{
+		natalia.miActitud(aguerrido)
+		natalia.recibirAmenazaDeMuerte()
+		assert.equals(new Paciente(5), natalia.obtenerActitud())
+	}
+	
+	test "una persona militante recibe amenaza de muerte"{
+		natalia.miActitud(militante)
+		natalia.recibirAmenazaDeMuerte()
+		assert.equals(aguerrido, natalia.obtenerActitud())
+	}
 }
