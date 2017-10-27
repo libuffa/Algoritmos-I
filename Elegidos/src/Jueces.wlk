@@ -1,7 +1,11 @@
+import TiposDeJuez.*
+
 
 class Juez {
 
 	var tipoDeJuez
+	
+	constructor()
 	
 	constructor(_tipoDeJuez){
 		tipoDeJuez = _tipoDeJuez
@@ -14,7 +18,7 @@ class Juez {
 	}
 	
 	method obtenerVotoNegativo(_cantante){
-		_cantante.impactarPuntaje( -5 )
+		_cantante.impactarPuntaje(-5)
 	}
 	
 	method ingresarTipoDeJuez(_tipoDeJuez){
@@ -24,11 +28,17 @@ class Juez {
 
 class Publico inherits Juez {
 	
+	constructor() = super(){
+		tipoDeJuez = juezPublico
+	}
+	
+	constructor(_tipoDeJuez) = super(_tipoDeJuez)
+	
 	override method obtenerVotoPositivo(_cantante){
 		_cantante.impactarPuntaje(2)
 	}
 	
 	override method obtenerVotoNegativo(_cantante){
-		_cantante.impactarPuntaje( -1 )
+		_cantante.impactarPuntaje(-1)
 	}
 }

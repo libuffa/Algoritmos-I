@@ -18,7 +18,7 @@ describe "test de elegidos"{
 		tinelli = new Juez(baboso)
 		diegoTorres = new Juez(tradicionalista)
 		axel = new Tecnico("tango")
-		tito = new Publico(baboso)
+		tito = new Publico()
 		maria = new Publico(tradicionalista)
 		mariana = new Cantante(23, "F", "rock")
 		flor = new Cantante(31, "F", "samba")
@@ -73,5 +73,14 @@ describe "test de elegidos"{
 		tinelli.obtenerVotoNegativo(mariana)
 		maria.obtenerVotoNegativo(mariana)
 		assert.equals(-6, mariana.obtenerPuntaje())
+	}
+	
+	test "verificar que el publico vote positivo por motus propio"{
+		assert.that(tito.obtenerMiVoto(flor))
+	}
+	
+	test "verificar que el publico vote acorde a un juez"{
+		assert.that(diegoTorres.obtenerMiVoto(tincho))
+		assert.that(maria.obtenerMiVoto(tincho))
 	}
 }
