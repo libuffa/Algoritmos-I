@@ -37,7 +37,6 @@ describe "test de mutual de viviendas"{
 	}
 	
 	test "trabajar y cargar las horas en la vivienda"{
-		//mutual.trabajarEnVivienda(viviendaUno, martin, 6, "cortar madera")
 		viviendaUno.arreglarme(6)
 		assert.equals(6, viviendaUno.obtenerHorasTrabajadas())
 	}
@@ -69,5 +68,14 @@ describe "test de mutual de viviendas"{
 		enrique.realizarTrabajo(6)
 		julieta.realizarTrabajo(4)
 		assert.notThat(gonzales.cumpliConMisHoras())
+	}
+	
+	test "verificar si la mutual envio a trabajar en la vivienda y se registro todo correctamente"{
+		mutual.trabajarEnVivienda(viviendaUno, martin, 6, "cortar madera")
+		assert.equals(6, viviendaUno.obtenerHorasTrabajadas())
+		assert.equals(1, mutual.cantidadDeRegistrosDeHoras())
+		assert.equals(6, martin.obtenerCantidadDeHorasTrabajadas())
+		assert.equals(6, gonzales.obtenerTotalDeHorasTrabajadas())
+		
 	}
 }

@@ -11,6 +11,7 @@ class Vivienda {
 	
 	method obtenerHorasEstimadas() = horasEstimadas
 	method obtenerHorasTrabajadas() = horasTrabajadas
+	method estoyArreglada() = self.obtenerHorasTrabajadas() > self.obtenerHorasEstimadas()
 	
 	method arreglarme(_horasTrabajadas){
 		horasTrabajadas += _horasTrabajadas
