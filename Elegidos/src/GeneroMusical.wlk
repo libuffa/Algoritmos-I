@@ -24,3 +24,7 @@ object tango {
 object cumbia {
 	method perteneceAlGenero(_cantante) = _cantante.obtenerHabilidadDeBaile()
 }
+
+object pop {
+	method perteneceAlGenero(_cantante) = true
+}

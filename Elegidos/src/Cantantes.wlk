@@ -27,6 +27,8 @@ class Cantante {
 	method soyAfinado() = vozAfinada
 	method obtenerHabilidadDeBaile() = habilidadDeBaile
 	
+	method pertenezcoAlGenero() = generoMusical.perteneceAlGenero(self)
+	
 	method impactarPuntaje(_puntaje){
 		puntaje += _puntaje
 	}

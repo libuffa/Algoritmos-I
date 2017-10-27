@@ -19,13 +19,13 @@ describe "test de elegidos"{
 	fixture{
 		tinelli = new Juez(baboso)
 		diegoTorres = new Juez(tradicionalista)
-		axel = new Tecnico("tango")
+		axel = new Tecnico(tango)
 		tito = new Publico()
 		maria = new Publico(tradicionalista)
-		mariana = new Cantante(23, "F", "rock", ["tachas", "cadenas"], false, true)
-		flor = new Cantante(31, "F", "samba", ["bikini"], true, true)
-		tincho = new Cantante(24, "M", "folklore", ["poncho", "alpargata"], false, false)
-		ernesto = new Cantante(63, "M", "tango", ["sombrero", "traje"], true, false)
+		mariana = new Cantante(23, "F", pop, ["tachas", "cadenas"], false, true)
+		flor = new Cantante(31, "F", cumbia, ["bikini"], true, true)
+		tincho = new Cantante(24, "M", folklore, ["poncho", "alpargata"], false, false)
+		ernesto = new Cantante(63, "M", tango, ["sombrero", "traje"], true, false)
 	}
 	
 	test "verificar que un juez vota positivamente y le da 10 puntos"{
@@ -51,7 +51,7 @@ describe "test de elegidos"{
 	}
 	
 	test "verificar si un juez tradicionalista vota positivamente a un cantante de tango"{
-		assert.that(diegoTorres.obtenerMiVoto(tincho))
+		assert.that(diegoTorres.obtenerMiVoto(ernesto))
 	}
 	
 	test "verificar si un juez tradicionalista vota negativamente a un cantante rock"{
@@ -109,5 +109,13 @@ describe "test de elegidos"{
 	
 	test "verificar si el cantante no pertenece a la cumbia"{
 		assert.notThat(cumbia.perteneceAlGenero(tincho))
+	}
+	
+	test "verificar si el cantante pertenece a la pop"{
+		assert.that(pop.perteneceAlGenero(mariana))
+	}
+	
+	test "verificar si por mi genero puedo preguntar si pertenezco"{
+		assert.that(tincho.pertenezcoAlGenero())
 	}
 }

@@ -1,3 +1,4 @@
+import GeneroMusical.*
 
 object baboso {
 
@@ -10,7 +11,7 @@ object baboso {
 
 object tradicionalista{
 	
-	var generosMusicalesTradicionales = ["tango", "folklore", "cuarteto"]
+	var generosMusicalesTradicionales = [tango, folklore]
 	
 	method obtenerMiVoto(_cantante) = self.esGeneroTradicional(_cantante.obtenerGeneroMusical())
 	
