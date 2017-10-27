@@ -1,16 +1,34 @@
 import Mutual.*
+import Familia.*
 
 describe "test de mutual de viviendas"{
 	
+	var gonzales
+	var enrique
+	var julieta
+	var martin
+	
 	fixture{
-		mutual.agregarFamiliasALaMutual(["perez", "lopez", "gonzales"])
+		enrique = new Persona("enrique", 50)
+		julieta = new Persona("julieta", 46)
+		martin = new Persona("martin", 21)
+		gonzales = new Familia(enrique, [julieta, martin])
+		mutual.agregarFamiliasALaMutual([gonzales])
 	}
 	
 	test "verificar que una mutual de viviendas tiene un conjunto de familias"{
-		assert.equals(3, mutual.cantidadDeFamilias())
+		assert.equals(1, mutual.cantidadDeFamilias())
 	}
 	
 	test "la mutual recibe una vivienda y estima horas en arreglarla"{
 		assert.equals(20, mutual.estimarHorasDeTrabajo("vivienda"))
+	}
+	
+	test "verificar que la familia tiene titular"{
+		assert.equals(enrique, gonzales.obtenerTitularFamilia())
+	}
+	
+	test "verificar que la familia tiene integrantes"{
+		assert.equals(2, gonzales.cantidadOtrosIntegrantesFamilia())
 	}
 }
