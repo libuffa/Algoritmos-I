@@ -16,5 +16,8 @@ class Juez {
 	method obtenerVotoNegativo(_cantante){
 		_cantante.impactarPuntaje( _cantante.obtenerPuntaje() * (-0.5) )
 	}
-
+	
+	method ingresarTipoDeJuez(_tipoDeJuez){
+		tipoDeJuez = _tipoDeJuez
+	}
 }
