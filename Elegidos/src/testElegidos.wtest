@@ -1,0 +1,28 @@
+import Jurado.*
+import Jueces.*
+import Cantantes.*
+
+describe "test de elegidos"{
+	
+	var tinelli
+	var moriaCasan
+	
+	fixture{
+		tinelli = new Juez()
+		moriaCasan = new Juez()
+	}
+	
+	test "verificar que un juez vota positivamente y le da 10 puntos"{
+		tinelli.obtenerVotoPositivo(cantante)
+		assert.equals(12, cantante.obtenerPuntaje())
+	}
+	
+	test "verificar que un juez vota negativamente y le resta la mitad de los puntos"{
+		tinelli.obtenerVotoNegativo(cantante)
+		assert.equals(1, cantante.obtenerPuntaje())
+	}
+	
+	//test "verificar que un juez vota positivamente a una cantante joven"{}
+	
+	//test "verificar que un juez vota negativamente a una cantante joven"{}
+}
