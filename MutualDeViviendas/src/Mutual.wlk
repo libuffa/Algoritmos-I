@@ -5,6 +5,7 @@ object mutual {
 	var registrosDeHoras = []
 	
 	method cantidadDeFamilias() = familiasDeLaMutual.size()
+	method cantidadDeRegistrosDeHoras() = registrosDeHoras.size()
 	
 	method agregarFamiliasALaMutual(_familias){
 		familiasDeLaMutual.addAll(_familias)
