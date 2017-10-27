@@ -10,5 +10,13 @@ object folklore {
 	method usaCalzadoApropiado(_cantante) = calzados.any({ calzado => 
 		_cantante.obtenerIndumentaria().contains(calzado)
 	}) 
+}
 
+object tango {
+	
+	method perteneceAlGenero(_cantante) = _cantante.soyAfinado() && self.tieneLaEdadAdecuada(_cantante) && self.usaSombrero(_cantante)
+	
+	method tieneLaEdadAdecuada(_cantante) = _cantante.obtenerEdad() > 50
+	
+	method usaSombrero(_cantante) = _cantante.obtenerIndumentaria().contains("sombrero")
 }
