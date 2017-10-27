@@ -114,4 +114,9 @@ describe "Test del programa Ni Una Menos"{
 		natalia.recibirAgresion(agresionSiete)
 		assert.equals(2, policia.cantidadDeDenuncias())
 	} 
+	
+	test "Verificar que una persona que se unio a una organizacion social se hizo militante"{
+		maria.unirmeAOrganizacionSocial()
+		assert.equals(militante, maria.obtenerActitud())
+	}
 }

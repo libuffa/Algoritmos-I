@@ -1,4 +1,5 @@
 import Policia.*
+import Actitud.*
 
 class Persona {
 	
@@ -11,6 +12,7 @@ class Persona {
 	}
 	
 	method obtenerAgresiones() = agresiones
+	method obtenerActitud() = actitud
 	
 	method meAnimoADenunciar(_agresion) = _agresion.esAgresionGrave() && self.tengoUnVinculoFamiliar(_agresion) && actitud.meAnimoADenunciar(_agresion, agresiones)
 	
@@ -31,6 +33,10 @@ class Persona {
 	
 	method realizarDenuncia(_agresion){
 		if(self.meAnimoADenunciar(_agresion)) policia.realizarDenuncia(_agresion, self)
+	}
+	
+	method unirmeAOrganizacionSocial(){
+		actitud = militante
 	}
 
 }
