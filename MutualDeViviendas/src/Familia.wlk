@@ -4,6 +4,7 @@ class Familia {
 	var titularFamilia
 	var otrosIntegrantesFamilia = []
 	var minimoDeHorasDeTrabajo
+	var vivienda
 	
 	constructor(_titularFamilia, _otrosIntegrantesFamilia, _minimoDeHorasDeTrabajo){
 		titularFamilia = _titularFamilia
@@ -19,6 +20,10 @@ class Familia {
 		integrante.obtenerCantidadDeHorasTrabajadas()
 	})
 	method cumpliConMisHoras() = self.obtenerTotalDeHorasTrabajadas() > minimoDeHorasDeTrabajo
+	
+	method asignarmeVivienda(_vivienda){
+		vivienda = _vivienda
+	}
 }
 
 class Persona {

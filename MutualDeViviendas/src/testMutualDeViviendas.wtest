@@ -9,6 +9,10 @@ describe "test de mutual de viviendas"{
 	var enrique
 	var julieta
 	var martin
+	var pereyra
+	var pedro
+	var maria
+	var aldana
 	
 	
 	fixture{
@@ -17,6 +21,10 @@ describe "test de mutual de viviendas"{
 		julieta = new Persona("julieta", 46)
 		martin = new Persona("martin", 21)
 		gonzales = new Familia(enrique, [julieta, martin], 12)
+		aldana = new Persona("aldana", 40)
+		pedro = new Persona("pedro", 36)
+		maria = new Persona("maria", 15)
+		pereyra  = new Familia(aldana, [pedro, maria], 30)
 		mutual.agregarFamiliasALaMutual([gonzales])
 	}
 	
@@ -76,6 +84,19 @@ describe "test de mutual de viviendas"{
 		assert.equals(1, mutual.cantidadDeRegistrosDeHoras())
 		assert.equals(6, martin.obtenerCantidadDeHorasTrabajadas())
 		assert.equals(6, gonzales.obtenerTotalDeHorasTrabajadas())
-		
+	}
+	
+	test "verificar cuando una vivienda esta completamente arreglada"{
+		mutual.trabajarEnVivienda(viviendaUno, martin, 8, "cortar madera")
+		mutual.trabajarEnVivienda(viviendaUno, enrique, 6, "hacer ventanas")
+		mutual.trabajarEnVivienda(viviendaUno, aldana, 8, "armar conexiones")
+		mutual.trabajarEnVivienda(viviendaUno, julieta, 4, "levantar techos")
+		assert.that(viviendaUno.estoyArreglada())
+	}
+	
+	test "verificar cuando una vivienda NO esta completamente arreglada"{
+		mutual.trabajarEnVivienda(viviendaUno, martin, 8, "cortar madera")
+		mutual.trabajarEnVivienda(viviendaUno, enrique, 6, "hacer ventanas")
+		assert.notThat(viviendaUno.estoyArreglada())
 	}
 }
