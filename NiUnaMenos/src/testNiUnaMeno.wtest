@@ -1,6 +1,7 @@
 import Agresion.*
 import Persona.*
 import Actitud.*
+import Policia.*
 
 describe "Test del programa Ni Una Menos"{
 	
@@ -106,4 +107,11 @@ describe "Test del programa Ni Una Menos"{
 		maria.miActitud(militante)
 		assert.notThat(maria.meAnimoADenunciar(agresionTres))
 	}
+	
+	test "Verificar que la policia registra la denuncia"{
+		natalia.miActitud(militante)
+		natalia.recibirAgresion(agresionUno)
+		natalia.recibirAgresion(agresionSiete)
+		assert.equals(2, policia.cantidadDeDenuncias())
+	} 
 }

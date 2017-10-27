@@ -1,3 +1,4 @@
+import Policia.*
 
 class Persona {
 	
@@ -21,6 +22,15 @@ class Persona {
 	
 	method agregarAgresion(_agresion){
 		agresiones.add(_agresion)
+	}
+	
+	method recibirAgresion(_agresion){
+		self.agregarAgresion(_agresion)
+		self.realizarDenuncia(_agresion)
+	}
+	
+	method realizarDenuncia(_agresion){
+		if(self.meAnimoADenunciar(_agresion)) policia.realizarDenuncia(_agresion, self)
 	}
 
 }
