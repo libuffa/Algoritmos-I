@@ -7,6 +7,7 @@ describe "test de elegidos"{
 	
 	var tinelli
 	var diegoTorres
+	var axel
 	var mariana
 	var flor
 	var tincho
@@ -14,6 +15,7 @@ describe "test de elegidos"{
 	fixture{
 		tinelli = new Juez(baboso)
 		diegoTorres = new Juez(tradicionalista)
+		axel = new Tecnico("tango")
 		mariana = new Cantante(23, "F", "rock")
 		flor = new Cantante(31, "F", "samba")
 		tincho = new Cantante(24, "M", "tango")
@@ -47,5 +49,13 @@ describe "test de elegidos"{
 	
 	test "verificar si un juez tradicionalista vota negativamente a un cantante rock"{
 		assert.notThat(diegoTorres.obtenerMiVoto(mariana))
+	}
+	
+	test "verificar si un juez tecnico vota positivamente a un cantante de tango"{
+		assert.that(axel.obtenerMiVoto(tincho))
+	}
+	
+	test "verificar si un juez tecnico vota negativamente a un cantante de samba"{
+		assert.notThat(axel.obtenerMiVoto(flor))
 	}
 }

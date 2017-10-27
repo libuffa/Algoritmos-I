@@ -16,3 +16,22 @@ object tradicionalista{
 	
 	method esGeneroTradicional(_generoMusical) = generosMusicalesTradicionales.contains(_generoMusical) 
 }
+
+class Tecnico{
+	
+	var generoElegido
+	
+	constructor(_generoElegido){
+		generoElegido = _generoElegido
+	}
+	
+	method obtenerGeneroElegido() = generoElegido
+	
+	method obtenerMiVoto(_cantante) = self.esElGeneroElegido(_cantante.obtenerGeneroMusical())
+	
+	method esElGeneroElegido(_generoMusical) = self.obtenerGeneroElegido() == _generoMusical
+	
+	method cambiarGeneroElegido(_generoElegido){
+		generoElegido = _generoElegido
+	}
+}
