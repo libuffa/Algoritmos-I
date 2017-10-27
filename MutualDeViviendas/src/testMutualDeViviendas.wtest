@@ -1,6 +1,7 @@
 import Mutual.*
 import Familia.*
 import Vivienda.*
+import Persona.*
 
 describe "test de mutual de viviendas"{
 	
@@ -15,24 +16,28 @@ describe "test de mutual de viviendas"{
 	var pedro
 	var maria
 	var aldana
+	var pepe
+	var marisa
 	
 	
 	fixture{
 		viviendaUno = new Casa(20, 4)
 		viviendaDos = new Departamento(13, 30)
-		enrique = new Persona("enrique", 50)
-		julieta = new Persona("julieta", 46)
-		martin = new Persona("martin", 21)
-		martina = new Persona("martina", 8)
+		enrique = new Persona("enrique", 50, sinProfesion)
+		julieta = new Persona("julieta", 46, sinProfesion)
+		martin = new Persona("martin", 21, sinProfesion)
+		martina = new Persona("martina", 8, sinProfesion)
 		gonzales = new Familia(enrique, [julieta, martin, martina], 12)
-		aldana = new Persona("aldana", 40)
-		pedro = new Persona("pedro", 36)
+		aldana = new Persona("aldana", 40, sinProfesion)
+		pedro = new Persona("pedro", 36, sinProfesion)
 		pereyra  = new Familia(aldana, [pedro], 30)
-		mutual.agregarFamiliasALaMutual([gonzales])
+		pepe = new Persona("pepe", 32, electricista)
+		marisa = new Persona("marisa", 41, decoradora)
+		mutual.agregarFamiliasALaMutual([gonzales, pereyra])
 	}
 	
 	test "verificar que una mutual de viviendas tiene un conjunto de familias"{
-		assert.equals(1, mutual.cantidadDeFamilias())
+		assert.equals(2, mutual.cantidadDeFamilias())
 	}
 	
 	test "la mutual recibe una vivienda y estima horas en arreglarla"{
@@ -53,7 +58,7 @@ describe "test de mutual de viviendas"{
 	}
 	
 	test "registrar las horas de trabajo"{
-		mutual.agregarRegistroDeHoras(6, "cortar madera")
+		mutual.agregarRegistroDeHoras(viviendaUno, martin,6, "cortar madera")
 		assert.equals(1, mutual.cantidadDeRegistrosDeHoras())
 	}
 	
@@ -139,5 +144,23 @@ describe "test de mutual de viviendas"{
 	
 	test "verificar que un menor de edad no pueda trabajar"{
 		assert.throwsException({ martina.realizarTrabajo(3) })
+	}
+	
+	test "verificar si tengo vivienda"{
+		assert.that(gonzales.noTengoVivienda())
+	}
+	
+	test "filtrar registros de horas de vivienda por parametro"{
+		mutual.trabajarEnVivienda(viviendaUno, martin, 8, "cortar madera")
+		mutual.trabajarEnVivienda(viviendaUno, pedro, 6, "hacer ventanas")
+		assert.equals(2, mutual.cantidadDeFamiliasQueTrabajaronEnLaVivienda(viviendaUno))
+	}
+	
+	test "verificar que se aumentan las horas de pepe electricista"{
+		assert.equals(12, pepe.verificarHorasDeTrabajo(10))
+	}
+	
+	test "verificar que se aumentan las horas de marisa"{
+		assert.equals(8, marisa.verificarHorasDeTrabajo(4))
 	}
 }
