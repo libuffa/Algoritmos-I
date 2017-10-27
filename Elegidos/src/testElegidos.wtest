@@ -11,6 +11,10 @@ describe "test de elegidos"{
 	var axel
 	var tito
 	var maria
+	var criCriminal
+	var danzaDeLosMirlos
+	var losNocheros
+	var gargantaConArena
 	var mariana
 	var flor
 	var tincho
@@ -22,10 +26,14 @@ describe "test de elegidos"{
 		axel = new Tecnico(tango)
 		tito = new Publico()
 		maria = new Publico(tradicionalista)
-		mariana = new Cantante(23, "F", pop, ["tachas", "cadenas"], false, true)
-		flor = new Cantante(31, "F", cumbia, ["bikini"], true, true)
-		tincho = new Cantante(24, "M", folklore, ["poncho", "alpargata"], false, false)
-		ernesto = new Cantante(63, "M", tango, ["sombrero", "traje"], true, false)
+		criCriminal = new Cancion("ozuna", pop)
+		danzaDeLosMirlos = new Cancion("damas gratis", cumbia)
+		losNocheros = new Cancion("los nocheros", folklore)
+		gargantaConArena = new Cancion("carlos gardel", tango)
+		mariana = new Cantante(23, "F", criCriminal, ["tachas", "cadenas"], false, true)
+		flor = new Cantante(31, "F", danzaDeLosMirlos, ["bikini"], true, true)
+		tincho = new Cantante(24, "M", losNocheros, ["poncho", "alpargata"], false, false)
+		ernesto = new Cantante(63, "M", gargantaConArena, ["sombrero", "traje"], true, false)
 	}
 	
 	test "verificar que un juez vota positivamente y le da 10 puntos"{
