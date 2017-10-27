@@ -28,6 +28,7 @@ class Persona {
 	
 	method obtenerNombre() = nombre
 	method obtenerEdad() = edad
+	method obtenerCantidadDeHorasTrabajadas() = cantidadDeHorasTrabajadas
 	
 	method realizarTrabajo(_horasTrabajadas){
 		cantidadDeHorasTrabajadas += _horasTrabajadas

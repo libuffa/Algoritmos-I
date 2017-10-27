@@ -46,4 +46,9 @@ describe "test de mutual de viviendas"{
 		mutual.agregarRegistroDeHoras(6, "cortar madera")
 		assert.equals(1, mutual.cantidadDeRegistrosDeHoras())
 	}
+	
+	test "registrar las horas trabajadas de martin"{
+		enrique.realizarTrabajo(6)
+		assert.equals(6, enrique.obtenerCantidadDeHorasTrabajadas())
+	}
 }
