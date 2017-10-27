@@ -136,4 +136,8 @@ describe "test de mutual de viviendas"{
 		mutual.entregarVivienda(viviendaUno, pereyra)
 		assert.notThat(mutual.seCumplenLasCondicionesDeEntrega(viviendaUno, pereyra))
 	}
+	
+	test "verificar que un menor de edad no pueda trabajar"{
+		assert.throwsException({ martina.realizarTrabajo(3) })
+	}
 }

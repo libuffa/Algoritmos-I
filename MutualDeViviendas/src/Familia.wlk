@@ -45,6 +45,11 @@ class Persona {
 	method obtenerCantidadDeHorasTrabajadas() = cantidadDeHorasTrabajadas
 	
 	method realizarTrabajo(_horasTrabajadas){
+		self.soyMenor()
 		cantidadDeHorasTrabajadas += _horasTrabajadas
+	}
+	
+	method soyMenor(){
+		if(self.obtenerEdad() < 18) throw new Exception("No puede trabajar un menor de edad")
 	}
 }
