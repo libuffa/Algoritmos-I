@@ -1,28 +1,43 @@
 import Jurado.*
 import Jueces.*
 import Cantantes.*
+import TiposDeJuez.*
 
 describe "test de elegidos"{
 	
 	var tinelli
 	var moriaCasan
+	var mariana
+	var flor
+	var tincho
 	
 	fixture{
-		tinelli = new Juez()
-		moriaCasan = new Juez()
+		tinelli = new Juez(baboso)
+		//moriaCasan = new Juez()
+		mariana = new Cantante(23, "F")
+		flor = new Cantante(31, "F")
+		tincho = new Cantante(24, "M")
 	}
 	
 	test "verificar que un juez vota positivamente y le da 10 puntos"{
-		tinelli.obtenerVotoPositivo(cantante)
-		assert.equals(12, cantante.obtenerPuntaje())
+		tinelli.obtenerVotoPositivo(mariana)
+		assert.equals(10, mariana.obtenerPuntaje())
 	}
 	
 	test "verificar que un juez vota negativamente y le resta la mitad de los puntos"{
-		tinelli.obtenerVotoNegativo(cantante)
-		assert.equals(1, cantante.obtenerPuntaje())
+		tinelli.obtenerVotoNegativo(mariana)
+		assert.equals(0, mariana.obtenerPuntaje())
 	}
 	
-	//test "verificar que un juez vota positivamente a una cantante joven"{}
+	test "verificar que un juez baboso vota positivamente a una cantante joven"{
+		assert.that(tinelli.obtenerMiVoto(mariana))
+	}
 	
-	//test "verificar que un juez vota negativamente a una cantante joven"{}
+	test "verificar que un juez baboso vota negativamente a una cantante porque no esjoven"{
+		assert.notThat(tinelli.obtenerMiVoto(flor))
+	}
+	
+	test "verificar si un juez baboso vota negativamente a un cantante hombre"{
+		assert.notThat(tinelli.obtenerMiVoto(tincho))
+	}
 }

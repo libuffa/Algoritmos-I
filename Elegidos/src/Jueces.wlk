@@ -1,7 +1,13 @@
 
 class Juez {
 
-	constructor()
+	var tipoDeJuez
+	
+	constructor(_tipoDeJuez){
+		tipoDeJuez = _tipoDeJuez
+	}
+	
+	method obtenerMiVoto(_cantante) = tipoDeJuez.obtenerMiVoto(_cantante)
 	
 	method obtenerVotoPositivo(_cantante){
 		_cantante.impactarPuntaje(10)
