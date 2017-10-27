@@ -28,11 +28,23 @@ class Cantante {
 	method obtenerHabilidadDeBaile() = habilidadDeBaile
 	method obtenerGeneroMusical() = cancionElegida.obtenerGenero()
 	method pertenezcoAlGenero() = self.obtenerGeneroMusical().perteneceAlGenero(self)
+	method cantidadDeRopa() = indumentaria.size()
 	
 	method impactarPuntaje(_puntaje){
 		puntaje += _puntaje
 	}
 
+	method cambiarCancion(_cancion){
+		cancionElegida = _cancion
+	}
+	
+	method agregarIndumentaria(_indumentaria){
+		indumentaria.addAll(_indumentaria)
+	}
+	
+	method quitarIndumentaria(){
+		indumentaria.clear()
+	}
 }
 
 class Cancion {

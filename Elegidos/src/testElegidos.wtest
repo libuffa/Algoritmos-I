@@ -23,7 +23,7 @@ describe "test de elegidos"{
 	fixture{
 		tinelli = new Juez(baboso)
 		diegoTorres = new Juez(tradicionalista)
-		axel = new Tecnico(tango)
+		axel = new Juez(new Tecnico(tango))
 		tito = new Publico()
 		maria = new Publico(tradicionalista)
 		criCriminal = new Cancion("ozuna", pop)
@@ -125,5 +125,19 @@ describe "test de elegidos"{
 	
 	test "verificar si por mi genero puedo preguntar si pertenezco"{
 		assert.that(tincho.pertenezcoAlGenero())
+	}
+	
+	test "verificar si me quito toda la indumentaria y me pongo otra"{
+		tincho.quitarIndumentaria()
+		assert.equals(0, tincho.cantidadDeRopa())
+		tincho.agregarIndumentaria(["boxers", "ojotas"])
+		assert.equals(2, tincho.cantidadDeRopa())
+	}
+	
+	test "se nombra el jurado y compiten tincho contra ernesto: gana ernesto"{
+		jurado.ingresarJueces([tinelli, axel, diegoTorres, tito])
+		jurado.votacion(tincho)
+		jurado.votacion(ernesto)
+		assert.equals(ernesto, jurado.nombrarGanador(tincho, ernesto))
 	}
 }

@@ -13,6 +13,13 @@ class Juez {
 	
 	method obtenerMiVoto(_cantante) = tipoDeJuez.obtenerMiVoto(_cantante)
 	
+	method votar(_cantante){
+		if(self.obtenerMiVoto(_cantante))
+			self.obtenerVotoPositivo(_cantante)
+		else
+			self.obtenerVotoNegativo(_cantante)
+	}
+	
 	method obtenerVotoPositivo(_cantante){
 		_cantante.impactarPuntaje(10)
 	}
