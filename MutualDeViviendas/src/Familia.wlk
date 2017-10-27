@@ -15,6 +15,7 @@ class Familia {
 	method obtenerTitularFamilia() = titularFamilia
 	method obtenerOtrosIntegrantesFamilia() = otrosIntegrantesFamilia
 	method cantidadOtrosIntegrantesFamilia() = otrosIntegrantesFamilia.size()
+	method cantidadTotalDeIntegrantesDeLaFamilia() = self.cantidadOtrosIntegrantesFamilia() + 1 
 	method obtenerTotalDeHorasTrabajadas() = self.obtenerTotalDeHorasTrabajadasDeOtrosIntegrantes() + titularFamilia.obtenerCantidadDeHorasTrabajadas()
 	method obtenerTotalDeHorasTrabajadasDeOtrosIntegrantes() = otrosIntegrantesFamilia.sum({ integrante =>
 		integrante.obtenerCantidadDeHorasTrabajadas()

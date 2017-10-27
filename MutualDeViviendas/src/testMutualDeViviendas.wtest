@@ -5,10 +5,12 @@ import Vivienda.*
 describe "test de mutual de viviendas"{
 	
 	var viviendaUno
+	var viviendaDos
 	var gonzales
 	var enrique
 	var julieta
 	var martin
+	var martina
 	var pereyra
 	var pedro
 	var maria
@@ -16,15 +18,16 @@ describe "test de mutual de viviendas"{
 	
 	
 	fixture{
-		viviendaUno = new Vivienda(20)
+		viviendaUno = new Casa(20, 4)
+		viviendaDos = new Departamento(13, 30)
 		enrique = new Persona("enrique", 50)
 		julieta = new Persona("julieta", 46)
 		martin = new Persona("martin", 21)
-		gonzales = new Familia(enrique, [julieta, martin], 12)
+		martina = new Persona("martina", 8)
+		gonzales = new Familia(enrique, [julieta, martin, martina], 12)
 		aldana = new Persona("aldana", 40)
 		pedro = new Persona("pedro", 36)
-		maria = new Persona("maria", 15)
-		pereyra  = new Familia(aldana, [pedro, maria], 30)
+		pereyra  = new Familia(aldana, [pedro], 30)
 		mutual.agregarFamiliasALaMutual([gonzales])
 	}
 	
@@ -41,7 +44,7 @@ describe "test de mutual de viviendas"{
 	}
 	
 	test "verificar que la familia tiene integrantes"{
-		assert.equals(2, gonzales.cantidadOtrosIntegrantesFamilia())
+		assert.equals(3, gonzales.cantidadOtrosIntegrantesFamilia())
 	}
 	
 	test "trabajar y cargar las horas en la vivienda"{
@@ -98,5 +101,21 @@ describe "test de mutual de viviendas"{
 		mutual.trabajarEnVivienda(viviendaUno, martin, 8, "cortar madera")
 		mutual.trabajarEnVivienda(viviendaUno, enrique, 6, "hacer ventanas")
 		assert.notThat(viviendaUno.estoyArreglada())
+	}
+	
+	test "verificar la capacidad de una casa"{
+		assert.equals(4, viviendaUno.obtenerCapacidad())
+	}
+	
+	test "verificar la capacidad de un departamento"{
+		assert.equals(2, viviendaDos.obtenerCapacidad())
+	}
+	
+	test "verificar si la casa es adecuada para los gonzales"{
+		assert.that(viviendaUno.soyAdecuadaParaUstedes(gonzales))
+	}
+	
+	test "verificar si la casa no es adecuada para los gonzales"{
+		assert.notThat(viviendaUno.soyAdecuadaParaUstedes(pereyra))
 	}
 }
