@@ -57,4 +57,17 @@ describe "test de mutual de viviendas"{
 		julieta.realizarTrabajo(4)
 		assert.equals(10, gonzales.obtenerTotalDeHorasTrabajadas())
 	}
+	
+	test "verificar si los gonzales cumplieron con su cuota minima de horas"{
+		enrique.realizarTrabajo(6)
+		julieta.realizarTrabajo(4)
+		martin.realizarTrabajo(4)
+		assert.that(gonzales.cumpliConMisHoras())
+	}
+	
+	test "verificar si los gonzales NO cumplieron con su cuota minima de horas"{
+		enrique.realizarTrabajo(6)
+		julieta.realizarTrabajo(4)
+		assert.notThat(gonzales.cumpliConMisHoras())
+	}
 }

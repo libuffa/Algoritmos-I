@@ -18,6 +18,7 @@ class Familia {
 	method obtenerTotalDeHorasTrabajadasDeOtrosIntegrantes() = otrosIntegrantesFamilia.sum({ integrante =>
 		integrante.obtenerCantidadDeHorasTrabajadas()
 	})
+	method cumpliConMisHoras() = self.obtenerTotalDeHorasTrabajadas() > minimoDeHorasDeTrabajo
 }
 
 class Persona {
