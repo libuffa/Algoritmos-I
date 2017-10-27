@@ -13,7 +13,8 @@ class Vivienda {
 	method obtenerHorasTrabajadas() = horasTrabajadas
 	method obtenerCapacidad() = 0
 	method estoyArreglada() = self.obtenerHorasTrabajadas() > self.obtenerHorasEstimadas()
-	method soyAdecuadaParaUstedes(_familia) = _familia.cantidadTotalDeIntegrantesDeLaFamilia() >= (self.obtenerCapacidad() - 1) && _familia.cantidadTotalDeIntegrantesDeLaFamilia() <= (self.obtenerCapacidad() + 1) 
+	method soyAdecuadaParaUstedes(_familia) = _familia.cantidadTotalDeIntegrantesDeLaFamilia() >= (self.obtenerCapacidad() - 1) && _familia.cantidadTotalDeIntegrantesDeLaFamilia() <= (self.obtenerCapacidad() + 1)
+	method estoyListoParaSerEntregada(_familia) = self.estoyArreglada() && self.soyAdecuadaParaUstedes(_familia)
 	
 	method arreglarme(_horasTrabajadas){
 		horasTrabajadas += _horasTrabajadas

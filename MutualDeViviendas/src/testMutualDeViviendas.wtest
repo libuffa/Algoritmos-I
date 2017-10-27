@@ -118,4 +118,22 @@ describe "test de mutual de viviendas"{
 	test "verificar si la casa no es adecuada para los gonzales"{
 		assert.notThat(viviendaUno.soyAdecuadaParaUstedes(pereyra))
 	}
+	
+	test "entregar viviendaUno a los gonzales"{
+		mutual.trabajarEnVivienda(viviendaUno, martin, 8, "cortar madera")
+		mutual.trabajarEnVivienda(viviendaUno, enrique, 6, "hacer ventanas")
+		mutual.trabajarEnVivienda(viviendaUno, aldana, 8, "armar conexiones")
+		mutual.trabajarEnVivienda(viviendaUno, julieta, 4, "levantar techos")
+		mutual.entregarVivienda(viviendaUno, gonzales)
+		assert.equals(viviendaUno, gonzales.obtenerVivienda())
+	}
+	
+	test "no entregar viviendaUno a los pereyra"{
+		mutual.trabajarEnVivienda(viviendaUno, martin, 8, "cortar madera")
+		mutual.trabajarEnVivienda(viviendaUno, enrique, 6, "hacer ventanas")
+		mutual.trabajarEnVivienda(viviendaUno, aldana, 8, "armar conexiones")
+		mutual.trabajarEnVivienda(viviendaUno, julieta, 4, "levantar techos")
+		mutual.entregarVivienda(viviendaUno, pereyra)
+		assert.notThat(mutual.seCumplenLasCondicionesDeEntrega(viviendaUno, pereyra))
+	}
 }

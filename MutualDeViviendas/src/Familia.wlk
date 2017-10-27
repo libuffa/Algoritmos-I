@@ -21,6 +21,7 @@ class Familia {
 		integrante.obtenerCantidadDeHorasTrabajadas()
 	})
 	method cumpliConMisHoras() = self.obtenerTotalDeHorasTrabajadas() > minimoDeHorasDeTrabajo
+	method obtenerVivienda() = vivienda
 	
 	method asignarmeVivienda(_vivienda){
 		vivienda = _vivienda
