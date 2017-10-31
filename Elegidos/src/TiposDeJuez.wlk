@@ -36,7 +36,3 @@ class Tecnico{
 		generoElegido = _generoElegido
 	}
 }
-
-object juezPublico {
-	method obtenerMiVoto(_cantante) = true
-}

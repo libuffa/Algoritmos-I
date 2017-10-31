@@ -35,11 +35,11 @@ class Juez {
 
 class Publico inherits Juez {
 	
-	constructor() = super(){
-		tipoDeJuez = juezPublico
-	}
+	constructor() = super()
 	
 	constructor(_tipoDeJuez) = super(_tipoDeJuez)
+	
+	override method obtenerMiVoto(_cantante) = true
 	
 	override method obtenerVotoPositivo(_cantante){
 		_cantante.impactarPuntaje(2)
