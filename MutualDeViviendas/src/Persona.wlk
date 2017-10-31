@@ -4,23 +4,21 @@ class Persona {
 	var nombre
 	var edad
 	var cantidadDeHorasTrabajadas
-	var profesion
 	
-	constructor(_nombre, _edad, _profesion){
+	constructor(_nombre, _edad){
 		nombre = _nombre
 		edad = _edad
-		profesion = _profesion
 		cantidadDeHorasTrabajadas = 0
 	}
 	
 	method obtenerNombre() = nombre
 	method obtenerEdad() = edad
 	method obtenerCantidadDeHorasTrabajadas() = cantidadDeHorasTrabajadas
-	method verificarHorasDeTrabajo(_horasTrabajadas) = profesion.horasDeTrabajo(_horasTrabajadas)
+	method calcularHorasTrabajadas(_horasTrabajadas) = _horasTrabajadas
 	
 	method realizarTrabajo(_horasTrabajadas){
 		self.soyMenor()
-		cantidadDeHorasTrabajadas += _horasTrabajadas
+		cantidadDeHorasTrabajadas += self.calcularHorasTrabajadas(_horasTrabajadas)
 	}
 	
 	method soyMenor(){
@@ -28,18 +26,14 @@ class Persona {
 	}
 }
 
-object sinProfesion{
-	method horasDeTrabajo(_horasTrabajadas) = _horasTrabajadas
+class Electricista inherits Persona{
+	override method calcularHorasTrabajadas(_horasTrabajadas) = _horasTrabajadas * 1.2
 }
 
-object electricista{
-	method horasDeTrabajo(_horasTrabajadas) = _horasTrabajadas * 1.2
+class Decoradora inherits Persona{
+	override method calcularHorasTrabajadas(_horasTrabajadas) = _horasTrabajadas * 2
 }
 
-object decoradora{
-	method horasDeTrabajo(_horasTrabajadas) = _horasTrabajadas * 2
-}
-
-object desordenado{
-	method horasDeTrabajo(_horasTrabajadas) = _horasTrabajadas * 0.75
+class Desordenado inherits Persona{
+	override method calcularHorasTrabajadas(_horasTrabajadas) = _horasTrabajadas * 0.75
 }

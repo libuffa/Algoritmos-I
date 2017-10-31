@@ -28,10 +28,9 @@ object mutual {
 	}
 	
 	method trabajarEnVivienda(_vivienda, _trabajador, _horasTrabajadas, _descripcion){
-		var __horasTrabajadas = _trabajador.verificarHorasDeTrabajo(_horasTrabajadas)
-		_vivienda.arreglarme(__horasTrabajadas)
-		self.agregarRegistroDeHoras(_vivienda, _trabajador, __horasTrabajadas, _descripcion)
-		_trabajador.realizarTrabajo(__horasTrabajadas)
+		_vivienda.arreglarme(_horasTrabajadas)
+		self.agregarRegistroDeHoras(_vivienda, _trabajador, _horasTrabajadas, _descripcion)
+		_trabajador.realizarTrabajo(_horasTrabajadas)
 	}
 	
 	method entregarVivienda(_vivienda, _familia){

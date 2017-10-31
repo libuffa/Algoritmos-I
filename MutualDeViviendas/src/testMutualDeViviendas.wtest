@@ -24,17 +24,17 @@ describe "test de mutual de viviendas"{
 	fixture{
 		viviendaUno = new Casa(20, 4)
 		viviendaDos = new Departamento(13, 30)
-		enrique = new Persona("enrique", 50, sinProfesion)
-		julieta = new Persona("julieta", 46, sinProfesion)
-		martin = new Persona("martin", 21, sinProfesion)
-		martina = new Persona("martina", 8, sinProfesion)
+		enrique = new Persona("enrique", 50)
+		julieta = new Persona("julieta", 46)
+		martin = new Persona("martin", 21)
+		martina = new Persona("martina", 8)
 		gonzales = new Familia(enrique, [julieta, martin, martina], 12)
-		aldana = new Persona("aldana", 40, sinProfesion)
-		pedro = new Persona("pedro", 36, sinProfesion)
+		aldana = new Persona("aldana", 40)
+		pedro = new Persona("pedro", 36)
 		pereyra  = new Familia(aldana, [pedro], 30)
-		pepe = new Persona("pepe", 32, electricista)
-		marisa = new Persona("marisa", 41, decoradora)
-		esteban = new Persona("esteban", 21, desordenado)
+		pepe = new Electricista("pepe", 32)
+		marisa = new Decoradora("marisa", 41)
+		esteban = new Desordenado("esteban", 21)
 		mutual.agregarFamiliasALaMutual([gonzales, pereyra])
 	}
 	
@@ -159,14 +159,14 @@ describe "test de mutual de viviendas"{
 	}
 	
 	test "verificar que se aumentan las horas de pepe electricista"{
-		assert.equals(12, pepe.verificarHorasDeTrabajo(10))
+		assert.equals(12, pepe.calcularHorasTrabajadas(10))
 	}
 	
 	test "verificar que se aumentan las horas de marisa"{
-		assert.equals(8, marisa.verificarHorasDeTrabajo(4))
+		assert.equals(8, marisa.calcularHorasTrabajadas(4))
 	}
 	
 	test "verificar que disminuyan las horas de esteban"{
-		assert.equals(7.5, esteban.verificarHorasDeTrabajo(10))
+		assert.equals(7.5, esteban.calcularHorasTrabajadas(10))
 	}
 }
