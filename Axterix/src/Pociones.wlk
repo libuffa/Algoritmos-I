@@ -6,6 +6,10 @@ class Pocion {
 	constructor(_ingredientes){
 		ingredientes = _ingredientes
 	}
+	
+	method efectoPocion(_soldado) = ingredientes.forEach({ ingrediente => 
+		ingrediente.efectoIngrediente(_soldado)
+	})
 }
 
 class Ingrediente {
@@ -29,7 +33,12 @@ class DulceDeLeche inherits Ingrediente{
 	
 	override method efectoIngrediente(_soldado){
 		super(_soldado)
-		if(_soldado.fueraDeCombate())	_soldado.modificarResistencia(resistencia)
+		if(_soldado.fueraDeCombate())	self.revivir(_soldado)
+	}
+	
+	method revivir(_soldado){
+		_soldado.estoyFueraDeCombate(false)
+		_soldado.modificarResistencia(resistencia)
 	}
 }
 
