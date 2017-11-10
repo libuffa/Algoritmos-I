@@ -12,6 +12,7 @@ class Persona {
 	
 	method obtenerPoder() = fuerza * resistencia
 	method fueraDeCombate() = fueraDeCombate
+	method quienEsMasPoderoso(_contrincante) = self.obtenerPoder() > _contrincante.obtenerPoder()
 	
 	method beberPocion(_pocion){
 		_pocion.efectoPocion(self)
@@ -32,5 +33,11 @@ class Persona {
 	
 	method estoyFueraDeCombate(_valor){
 		fueraDeCombate =  _valor
+	}
+	
+	method combate(_contrincante){
+		var danio = (self.obtenerPoder() - _contrincante.obtenerPoder()).abs()
+		if(self.quienEsMasPoderoso(_contrincante))	_contrincante.recibirDanio(danio)
+		else self.recibirDanio(danio)
 	}
 }

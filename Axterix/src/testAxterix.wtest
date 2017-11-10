@@ -1,20 +1,31 @@
 import Persona.*
 import Pociones.*
+import Aldeas.*
 
 describe "testAxterixYObelix"{
 	
 	var galo
+	var galoDos
+	var romano
+	var romanoDos
 	var revividor
 	var dulceDeLeche
 	var manojo
 	var zumo
+	var aldea
+	var campamento
 	
 	fixture{
 		galo  = new Persona(10, 7)
+		galoDos = new Persona(25, 10)
+		romano  = new Persona(10, 20)
+		romanoDos = new Persona(8, 16)
 		dulceDeLeche = new DulceDeLeche(10)
 		manojo = new ManojoDeMuerdago(6)
 		zumo = new AceiteDeRoca(8, true)
 		revividor = new Pocion([ dulceDeLeche, manojo, zumo ])
+		aldea = new Aldea([ galo, galoDos ])
+		campamento = new CampamentoEnTortuga([ romano, romanoDos ])
 	}
 	
 	test "ConocerElPoderDelGalo"{
@@ -31,5 +42,15 @@ describe "testAxterixYObelix"{
 		assert.that(galo.fueraDeCombate())
 		galo.beberPocion(revividor)
 		assert.notThat(galo.fueraDeCombate())
+	}
+	
+	test "ObtenerFuerzaDeAldea"{
+		assert.equals(320, aldea.obtenerPoder())
+		galo.recibirDanio(7)
+		assert.equals(250, aldea.obtenerPoder())
+	}
+	
+	test "ObtenerPoderDeCampamentoTortuga" {
+		assert.equals(romano.obtenerPoder(), campamento.obtenerPoder())
 	}
 }
