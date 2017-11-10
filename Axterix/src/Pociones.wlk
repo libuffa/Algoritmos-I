@@ -43,15 +43,16 @@ class DulceDeLeche inherits Ingrediente{
 }
 
 class ManojoDeMuerdago inherits Ingrediente{
-	var tamanioManojo = fuerza
 	
-	constructor(_fuerza, _resistencia) = super(_fuerza){
-		resistencia = {soldado => -(soldado.obtenerResistencia() - 2) }
+	constructor(_fuerza) = super(_fuerza){
+		resistencia = {soldado => self.resistenciaDelMuerdago(soldado) }
 	}
 	
+	method resistenciaDelMuerdago(_soldado) = -(soldado.obtenerResistencia() / 2)
+	
 	override method efectoIngrediente(_soldado){
-		super(_soldado)
-		if(tamanioManojo < 5)	_soldado.modificarResistencia(resistencia.apply())
+		super(_soldado)8
+		if(fuerza < 5)	_soldado.modificarResistencia(resistencia.apply(_soldado))
 	}
 }
 

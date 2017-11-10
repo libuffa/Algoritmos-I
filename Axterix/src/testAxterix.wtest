@@ -1,0 +1,35 @@
+import Persona.*
+import Pociones.*
+
+describe "testAxterixYObelix"{
+	
+	var galo
+	var revividor
+	var dulceDeLeche
+	var manojo
+	var zumo
+	
+	fixture{
+		galo  = new Persona(10, 7)
+		dulceDeLeche = new DulceDeLeche(10)
+		manojo = new ManojoDeMuerdago(6)
+		zumo = new AceiteDeRoca(8, true)
+		revividor = new Pocion([ dulceDeLeche, manojo, zumo ])
+	}
+	
+	test "ConocerElPoderDelGalo"{
+		assert.equals(70, galo.obtenerPoder())
+	}
+	
+	test "GaloRecibeDanio"{
+		galo.recibirDanio(7)
+		assert.that(galo.fueraDeCombate())
+	}
+	
+	test "GaloBebePocion"{
+		galo.recibirDanio(7)
+		assert.that(galo.fueraDeCombate())
+		galo.beberPocion(revividor)
+		assert.notThat(galo.fueraDeCombate())
+	}
+}
